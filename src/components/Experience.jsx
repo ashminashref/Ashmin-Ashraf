@@ -51,23 +51,23 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-20 border-b border-[#e5e7eb] bg-white">
+    <section id="experience" className="py-14 sm:py-20 border-b border-[#e5e7eb] bg-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#e5e7eb] gap-6">
-          <div className="space-y-3">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 pb-5 sm:pb-6 border-b border-[#e5e7eb] gap-4 sm:gap-6">
+          <div className="space-y-2 sm:space-y-3">
             <div className="text-xs font-mono text-[#6b7280] uppercase tracking-wider flex items-center gap-2">
               <span className="w-2 h-2 bg-[#0055ff] inline-block"></span>
               <span>CAREER CHRONOLOGY</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-normal tracking-tight text-[#121316]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-normal tracking-tight text-[#121316]">
               The Journey.{' '}
               <span className="block text-[#0055ff] font-medium">Experience & Milestones</span>
             </h2>
           </div>
 
-          <p className="max-w-md text-sm text-[#4b5563] font-light leading-relaxed">
+          <p className="max-w-md text-xs sm:text-sm text-[#4b5563] font-light leading-relaxed">
             From self-taught curiosity in Kozhikode to building full-scale design systems and production web applications.
           </p>
         </div>
@@ -81,31 +81,31 @@ export default function Experience() {
                 {/* Accordion Trigger Header */}
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                  className="w-full text-left p-6 sm:p-8 flex items-center justify-between hover:bg-[#fafafa] transition-colors gap-4 cursor-pointer"
+                  className="w-full text-left p-4 sm:p-6 lg:p-8 flex items-center justify-between hover:bg-[#fafafa] transition-colors gap-3 sm:gap-4 cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-6 items-center flex-1">
+                  <div className="flex flex-col md:grid md:grid-cols-12 gap-1 md:gap-6 items-start md:items-center flex-1 pr-2">
                     <span className="md:col-span-3 text-xs font-mono text-[#0055ff] font-semibold">
                       {item.period}
                     </span>
-                    <span className="md:col-span-5 text-lg font-sans font-semibold text-[#121316]">
+                    <span className="md:col-span-5 text-base sm:text-lg font-sans font-semibold text-[#121316]">
                       <ScrambleText text={item.role} speed={20} duration={300} />
                     </span>
-                    <span className="md:col-span-4 text-xs font-mono text-[#6b7280] flex items-center justify-between">
+                    <span className="md:col-span-4 text-xs font-mono text-[#6b7280] flex flex-wrap items-center justify-between gap-1">
                       <span>{item.entity}</span>
                       <span className="hidden sm:inline text-[#9ca3af]">{item.location}</span>
                     </span>
                   </div>
 
-                  <div className="w-8 h-8 border border-[#e5e7eb] flex items-center justify-center shrink-0">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 border border-[#e5e7eb] flex items-center justify-center shrink-0">
                     {isOpen ? <Minus className="w-4 h-4 text-[#0055ff]" /> : <Plus className="w-4 h-4" />}
                   </div>
                 </button>
 
                 {/* Accordion Content Body */}
                 {isOpen && (
-                  <div className="px-6 sm:px-8 pb-8 pt-2 bg-[#fcfcfd] border-t border-[#f3f4f6] space-y-5 animate-in fade-in duration-200">
-                    <p className="text-sm text-[#4b5563] leading-relaxed max-w-3xl">
+                  <div className="px-4 sm:px-8 pb-6 sm:pb-8 pt-3 bg-[#fcfcfd] border-t border-[#f3f4f6] space-y-4 sm:space-y-5 animate-in fade-in duration-200">
+                    <p className="text-xs sm:text-sm text-[#4b5563] leading-relaxed max-w-3xl font-light">
                       {item.summary}
                     </p>
 
@@ -116,7 +116,7 @@ export default function Experience() {
                       <div className="space-y-1.5">
                         {item.highlights.map((h, hIdx) => (
                           <div key={hIdx} className="text-xs text-[#374151] flex items-start gap-2">
-                            <span className="text-[#0055ff] font-bold">›</span>
+                            <span className="text-[#0055ff] font-bold shrink-0">›</span>
                             <span>{h}</span>
                           </div>
                         ))}
@@ -124,7 +124,7 @@ export default function Experience() {
                     </div>
 
                     <div className="flex flex-wrap items-center gap-1.5 pt-2">
-                      <span className="text-[10px] font-mono text-[#9ca3af] uppercase mr-2">
+                      <span className="text-[10px] font-mono text-[#9ca3af] uppercase mr-1">
                         STACK:
                       </span>
                       {item.stack.map((t, tIdx) => (

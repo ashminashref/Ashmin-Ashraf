@@ -1,6 +1,6 @@
 import React from 'react';
 import ScrambleText from './ScrambleText';
-import { Palette, Code2, Database, Terminal, Cpu, CheckCircle } from 'lucide-react';
+import { Palette, Code2, Cpu } from 'lucide-react';
 
 export default function Capabilities() {
   const domains = [
@@ -55,23 +55,23 @@ export default function Capabilities() {
   ];
 
   return (
-    <section id="skills" className="py-20 border-b border-[#e5e7eb] bg-white">
+    <section id="skills" className="py-14 sm:py-20 border-b border-[#e5e7eb] bg-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#e5e7eb] gap-6">
-          <div className="space-y-3">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 pb-5 sm:pb-6 border-b border-[#e5e7eb] gap-4 sm:gap-6">
+          <div className="space-y-2 sm:space-y-3">
             <div className="text-xs font-mono text-[#6b7280] uppercase tracking-wider flex items-center gap-2">
               <span className="w-2 h-2 bg-[#0055ff] inline-block"></span>
               <span>CAPABILITIES MATRIX</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-normal tracking-tight text-[#121316]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-normal tracking-tight text-[#121316]">
               Dual-Discipline Mastery.{' '}
               <span className="block text-[#0055ff] font-medium">Design Taste + Technical Depth</span>
             </h2>
           </div>
 
-          <p className="max-w-md text-sm sm:text-base text-[#4b5563] font-light leading-relaxed">
+          <p className="max-w-md text-xs sm:text-sm md:text-base text-[#4b5563] font-light leading-relaxed">
             The rare dual capability of envisioning high-tier aesthetics in design tools and 
             engineering them directly into production codebases with zero dilution.
           </p>
@@ -79,14 +79,14 @@ export default function Capabilities() {
 
         {/* 3 Large Discipline Columns */}
         <div className="grid grid-cols-1 lg:grid-cols-3 border-l border-t border-[#e5e7eb]">
-          {domains.map((domain, idx) => {
+          {domains.map((domain) => {
             const Icon = domain.icon;
             return (
               <div
                 key={domain.id}
-                className="border-r border-b border-[#e5e7eb] p-8 sm:p-10 bg-white hover:bg-[#fafafa] transition-all flex flex-col justify-between group"
+                className="border-r border-b border-[#e5e7eb] p-5 sm:p-8 lg:p-10 bg-white hover:bg-[#fafafa] transition-all flex flex-col justify-between group"
               >
-                <div className="space-y-6">
+                <div className="space-y-5 sm:space-y-6">
                   {/* Top Category tag */}
                   <div className="flex items-center justify-between text-xs font-mono">
                     <span className="text-[#0055ff] font-semibold">{domain.category}</span>
@@ -95,13 +95,13 @@ export default function Capabilities() {
 
                   {/* Header & Icon */}
                   <div className="space-y-3">
-                    <div className="w-12 h-12 border border-[#e5e7eb] bg-[#f9f9fb] group-hover:bg-[#0055ff] group-hover:text-white group-hover:border-[#0055ff] transition-all flex items-center justify-center text-[#121316]">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 border border-[#e5e7eb] bg-[#f9f9fb] group-hover:bg-[#0055ff] group-hover:text-white group-hover:border-[#0055ff] transition-all flex items-center justify-center text-[#121316]">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <h3 className="text-2xl font-sans font-semibold text-[#121316] tracking-tight">
+                    <h3 className="text-xl sm:text-2xl font-sans font-semibold text-[#121316] tracking-tight">
                       <ScrambleText text={domain.title} speed={20} duration={350} />
                     </h3>
-                    <p className="text-sm text-[#4b5563] font-light leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#4b5563] font-light leading-relaxed">
                       {domain.summary}
                     </p>
                   </div>
@@ -112,8 +112,8 @@ export default function Capabilities() {
                       Core Competencies
                     </div>
                     {domain.skills.map((skill, sIdx) => (
-                      <div key={sIdx} className="flex items-start gap-2.5 text-xs text-[#374151]">
-                        <span className="text-[#0055ff] mt-0.5">▪</span>
+                      <div key={sIdx} className="flex items-start gap-2 text-xs text-[#374151]">
+                        <span className="text-[#0055ff] mt-0.5 shrink-0">▪</span>
                         <span>{skill}</span>
                       </div>
                     ))}
@@ -121,7 +121,7 @@ export default function Capabilities() {
                 </div>
 
                 {/* Bottom Tools Pill Box */}
-                <div className="pt-8 border-t border-[#f3f4f6] mt-8">
+                <div className="pt-6 sm:pt-8 border-t border-[#f3f4f6] mt-6 sm:mt-8">
                   <div className="text-[11px] font-mono text-[#6b7280] uppercase tracking-wider mb-2">
                     Primary Tools
                   </div>
@@ -129,7 +129,7 @@ export default function Capabilities() {
                     {domain.tools.map((tool, tIdx) => (
                       <span
                         key={tIdx}
-                        className="text-[11px] font-mono px-2 py-0.5 bg-white border border-[#e5e7eb] text-[#374151]"
+                        className="text-[10px] sm:text-[11px] font-mono px-2 py-0.5 bg-white border border-[#e5e7eb] text-[#374151]"
                       >
                         {tool}
                       </span>

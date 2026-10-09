@@ -52,16 +52,13 @@ function App() {
   return (
     <div
       ref={mainRef}
-      className="min-h-screen bg-white text-[#121316] font-sans selection:bg-[#0055ff] selection:text-white"
+      className="min-h-screen w-full max-w-full overflow-x-hidden bg-white text-[#121316] font-sans selection:bg-[#0055ff] selection:text-white"
     >
       <Navbar onOpenContact={() => setContactModalOpen(true)} />
 
-      <main>
+      <main className="w-full max-w-full overflow-x-hidden">
         {/* Hero Section */}
-        <Hero
-          onOpenContact={() => setContactModalOpen(true)}
-          onExploreWork={handleExploreWork}
-        />
+        <Hero onExploreWork={handleExploreWork} />
 
         {/* Technical Marquee Strip */}
         <Marquee dark={false} />

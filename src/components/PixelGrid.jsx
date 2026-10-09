@@ -51,7 +51,7 @@ export default function PixelGrid({ rows = 6, cols = 32, theme = 'dark' }) {
   return (
     <div
       ref={gridRef}
-      className={`w-full overflow-hidden border-y select-none ${
+      className={`w-full overflow-hidden border-y select-none touch-pan-y ${
         isDark ? 'bg-[#121316] border-[#26282e]' : 'bg-[#fafafa] border-[#e5e7eb]'
       }`}
     >
@@ -61,6 +61,21 @@ export default function PixelGrid({ rows = 6, cols = 32, theme = 'dark' }) {
           gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
           aspectRatio: `${cols} / ${rows}`,
         }}
+        onTouchMove={(e) => {
+          const touch = e.touches[0];
+          if (!touch || !gridRef.current) return;
+          const rect = gridRef.current.getBoundingClientRect();
+          const x = touch.clientX - rect.left;
+          const y = touch.clientY - rect.top;
+          if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+            const colIdx = Math.floor((x / rect.width) * cols);
+            const rowIdx = Math.floor((y / rect.height) * rows);
+            const cellIdx = rowIdx * cols + colIdx;
+            if (cellIdx >= 0 && cellIdx < totalCells) {
+              handleCellHover(cellIdx);
+            }
+          }
+        }}
       >
         {Array.from({ length: totalCells }).map((_, idx) => {
           const intensity = activePixels[idx] || 0;
@@ -68,12 +83,13 @@ export default function PixelGrid({ rows = 6, cols = 32, theme = 'dark' }) {
             <div
               key={idx}
               onMouseEnter={() => handleCellHover(idx)}
+              onTouchStart={() => handleCellHover(idx)}
               className={`border-[0.5px] transition-all duration-300 relative cursor-crosshair flex items-center justify-center ${
                 isDark ? 'border-[#1f2127]' : 'border-[#ededed]'
               }`}
             >
               <div
-                className="w-full h-full transition-opacity duration-300"
+                className="w-full h-full transition-opacity duration-300 pointer-events-none"
                 style={{
                   backgroundColor: intensity > 0.5 ? '#0055ff' : isDark ? '#ffffff' : '#0055ff',
                   opacity: intensity,

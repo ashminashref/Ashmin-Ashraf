@@ -55,7 +55,7 @@ export default function Navbar({ onOpenContact }) {
           : 'bg-white border-[#e5e7eb]'
       }`}
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="max-w-[1280px] mx-auto px-3.5 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
         {/* Brand / Logo */}
         <a
@@ -64,10 +64,10 @@ export default function Navbar({ onOpenContact }) {
             e.preventDefault();
             scrollTo('home');
           }}
-          className="flex items-center gap-3 group"
+          className="flex items-center gap-2 sm:gap-3 group min-w-0"
         >
           {/* Stylized Crosshair Emblem from Aeye */}
-          <div className="relative w-8 h-8 flex items-center justify-center bg-black text-white group-hover:bg-[#0055ff] transition-colors">
+          <div className="relative w-8 h-8 shrink-0 flex items-center justify-center bg-black text-white group-hover:bg-[#0055ff] transition-colors">
             <svg
               viewBox="0 0 24 24"
               className="w-4 h-4 fill-current"
@@ -78,16 +78,16 @@ export default function Navbar({ onOpenContact }) {
             </svg>
           </div>
 
-          <div className="flex flex-col">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-sm font-semibold tracking-wider text-black uppercase">
+          <div className="flex flex-col min-w-0">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-black uppercase truncate">
                 ASHMIN ASHRAF
               </span>
               <span className="hidden sm:inline text-[10px] font-mono px-1.5 py-0.2 bg-[#f3f4f6] text-[#4b5563] border border-[#e5e7eb]">
                 PORTFOLIO
               </span>
             </div>
-            <span className="text-[10px] font-mono text-[#6b7280] tracking-tight">
+            <span className="text-[9px] sm:text-[10px] font-mono text-[#6b7280] tracking-tight truncate">
               DESIGNER • FULL-STACK DEVELOPER
             </span>
           </div>
@@ -137,7 +137,7 @@ export default function Navbar({ onOpenContact }) {
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 border border-black text-black hover:bg-[#f3f4f6]"
+            className="p-2 border border-black text-black hover:bg-[#f3f4f6] cursor-pointer"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -147,31 +147,51 @@ export default function Navbar({ onOpenContact }) {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[#e5e7eb] bg-white px-4 py-4 space-y-2">
+        <div className="md:hidden border-t border-[#e5e7eb] bg-white px-4 py-4 space-y-2 animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="flex items-center justify-between pb-3 border-b border-[#f3f4f6] text-xs font-mono text-[#6b7280]">
             <span>LOCATION</span>
             <span className="text-black font-semibold">KOZHIKODE, KERALA</span>
           </div>
-          {navLinks.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => scrollTo(link.id)}
-              className="w-full text-left px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#1a1a1a] hover:bg-[#f3f4f6] flex items-center justify-between cursor-pointer"
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <button
+                key={link.id}
+                onClick={() => scrollTo(link.id)}
+                className={`w-full text-left px-3 py-2.5 text-xs font-mono uppercase tracking-wider flex items-center justify-between cursor-pointer transition-colors ${
+                  isActive
+                    ? 'bg-black text-white font-semibold'
+                    : 'text-[#1a1a1a] hover:bg-[#f3f4f6]'
+                }`}
+              >
+                <span>{link.label}</span>
+                <span className={isActive ? 'text-white' : 'text-[#0055ff]'}>&gt;</span>
+              </button>
+            );
+          })}
+          <div className="pt-2 grid grid-cols-1 gap-2">
+            <a
+              href={calLink}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 bg-[#0055ff] text-white text-xs font-mono uppercase tracking-wider font-semibold flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors"
             >
-              <span>{link.label}</span>
-              <span className="text-[#0055ff]">&gt;</span>
-            </button>
-          ))}
-          <a
-            href={calLink}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => setMobileMenuOpen(false)}
-            className="w-full mt-2 py-2.5 bg-black text-white text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#0055ff] transition-colors"
-          >
-            <span>LET'S CONNECT (CAL.COM)</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
+              <span>SCHEDULE CALL (CAL.COM)</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+            {onOpenContact && (
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenContact();
+                }}
+                className="w-full py-2.5 border border-black bg-white text-black text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#f3f4f6] transition-colors cursor-pointer"
+              >
+                <span>SEND DIRECT INQUIRY</span>
+              </button>
+            )}
+          </div>
         </div>
       )}
     </header>
