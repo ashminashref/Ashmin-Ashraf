@@ -56,20 +56,21 @@ export default function Hero({ onExploreWork }) {
             <div className="inline-flex items-center gap-2 px-2.5 py-1 text-[11px] sm:text-xs font-mono border border-[#e5e7eb] bg-[#fafafa] max-w-full">
               <span className="w-2 h-2 rounded-full bg-[#0055ff] shrink-0"></span>
               <span className="truncate">
-                <ScrambleText text="PRODUCT DESIGNER & FULL-STACK DEVELOPER" speed={20} duration={400} />
+                <ScrambleText text="DESIGNER & FULL-STACK DEVELOPER" speed={20} duration={400} />
               </span>
             </div>
 
-            {/* Clean, Professional Headline */}
+            {/* Creative, Minimal & Universally Understandable Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-sans font-normal tracking-tight leading-[1.12] sm:leading-[1.08] text-[#121316] break-words">
-              Product Designer{' '}
-              <span className="text-[#0055ff] font-medium block sm:inline">
-                &amp; Full-Stack Developer.
-              </span>
+              A{' '}
+              <span className="text-[#0055ff] font-medium group cursor-default inline-block">
+                <ScrambleText text="Designer" speed={25} duration={400} />
+              </span>{' '}
+              who builds what he designs.
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-[#4b5563] max-w-2xl font-light leading-relaxed">
-              Based in <strong className="font-medium text-[#121316]">Kozhikode, Kerala</strong>. I design intuitive user interfaces in Figma and build clean, responsive web applications with React, TailwindCSS, and Python.
+              Based in <strong className="font-medium text-[#121316]">Kozhikode, Kerala</strong>. I craft clean, intuitive user interfaces and develop fast, responsive websites and web applications from concept to launch.
             </p>
 
             {/* Action Buttons with responsive stacking for mobile */}

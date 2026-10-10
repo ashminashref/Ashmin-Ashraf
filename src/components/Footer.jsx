@@ -73,7 +73,7 @@ export default function Footer({ onOpenContact }) {
                   ASHMIN ASHRAF
                 </div>
                 <div className="text-[10px] sm:text-[11px] font-mono text-[#6b7280] truncate">
-                  PRODUCT DESIGNER • FULL-STACK DEVELOPER
+                  DESIGNER • FULL-STACK DEVELOPER
                 </div>
               </div>
             </div>
