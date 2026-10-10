@@ -318,7 +318,7 @@ export default function Projects() {
                 <div className="relative h-48 xs:h-56 sm:h-64 overflow-hidden bg-[#0d1117] flex items-center justify-center">
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} - ${project.category} engineered by Kozhikode software developer & designer Ashmin Ashraf`}
                     className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
                     loading="lazy"
                   />
@@ -440,7 +440,7 @@ export default function Projects() {
               <div className="border-b border-[#e5e7eb] bg-[#0d1117] h-48 xs:h-56 sm:h-64 overflow-hidden shrink-0">
                 <img
                   src={selectedProject.image}
-                  alt={selectedProject.title}
+                  alt={`${selectedProject.title} - ${selectedProject.category} engineered by Kozhikode software developer & designer Ashmin Ashraf`}
                   className="w-full h-full object-cover object-center"
                 />
               </div>

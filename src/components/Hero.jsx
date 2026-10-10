@@ -56,25 +56,24 @@ export default function Hero({ onExploreWork }) {
             <div className="inline-flex items-center gap-2 px-2.5 py-1 text-[11px] sm:text-xs font-mono border border-[#e5e7eb] bg-[#fafafa] max-w-full">
               <span className="w-2 h-2 rounded-full bg-[#0055ff] shrink-0"></span>
               <span className="truncate">
-                <ScrambleText text="SELF-TAUGHT DESIGNER & FULL-STACK DEVELOPER" speed={20} duration={400} />
+                <ScrambleText text="TOP SOFTWARE DEVELOPER & DESIGNER • KOZHIKODE, KERALA" speed={20} duration={400} />
               </span>
             </div>
 
             {/* Stable Headline: perfectly sized across all viewport ranges */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-sans font-normal tracking-tight leading-[1.12] sm:leading-[1.08] text-[#121316] break-words">
-              Self-Taught{' '}
+              Best Software{' '}
               <span className="text-[#0055ff] font-medium group cursor-default inline-block">
                 <span>[</span>
-                <ScrambleText text="Product Designer" speed={25} duration={400} />
+                <ScrambleText text="Developer & Designer" speed={25} duration={400} />
                 <span>]</span>
               </span>
               <br className="hidden sm:inline" />
-              {' '}with Full-Stack Development Knowledge.
+              {' '}in Kozhikode, Kerala.
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-[#4b5563] max-w-2xl font-light leading-relaxed">
-              Based in <strong className="font-medium text-[#121316]">Kozhikode, Kerala</strong>. 
-              I design modern, intuitive user interfaces in Figma and build them directly into robust, responsive full-stack applications with React, TailwindCSS, and GSAP.
+              Hi, I'm <strong className="font-semibold text-[#121316]">Ashmin Ashraf</strong>. Based in <strong className="font-medium text-[#121316]">Kozhikode, Kerala</strong>, I engineer high-performance full-stack web applications and craft intuitive, conversion-focused UI/UX design systems in Figma, React, Next.js, and Python.
             </p>
 
             {/* Action Buttons with responsive stacking for mobile */}
@@ -146,7 +145,7 @@ export default function Hero({ onExploreWork }) {
               <div>
                 <div className="text-[11px] font-mono text-[#6b7280] uppercase">Focus</div>
                 <div className="text-sm text-[#374151] mt-0.5 leading-relaxed">
-                  UI/UX Design, Modern Web Applications, Micro-Interactions, End-to-End Architecture
+                  Full-Stack Software Engineering, UI/UX Design, Next.js / Python Web Apps, Design Systems
                 </div>
               </div>
 

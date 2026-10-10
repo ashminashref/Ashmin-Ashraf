@@ -8,6 +8,9 @@ import Marquee from './components/Marquee';
 import Philosophy from './components/Philosophy';
 import Projects from './components/Projects';
 import Capabilities from './components/Capabilities';
+import LocalSeoSection from './components/LocalSeoSection';
+import Testimonials from './components/Testimonials';
+import FaqSection from './components/FaqSection';
 import Experience from './components/Experience';
 import CtaSection from './components/CtaSection';
 import Footer from './components/Footer';
@@ -71,6 +74,15 @@ function App() {
 
         {/* Skills & Capabilities Matrix */}
         <Capabilities />
+
+        {/* Local Software Development & UI/UX Leadership in Kozhikode */}
+        <LocalSeoSection onOpenContact={() => setContactModalOpen(true)} />
+
+        {/* Verified Endorsements & Peer Validations */}
+        <Testimonials />
+
+        {/* Frequently Asked Questions (FAQPage Schema Synced) */}
+        <FaqSection />
 
         {/* Career Journey & Milestones */}
         <Experience />

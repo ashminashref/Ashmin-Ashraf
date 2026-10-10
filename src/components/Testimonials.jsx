@@ -8,27 +8,27 @@ export default function Testimonials() {
       name: 'Marcus Vance',
       role: 'Founder & CEO, Horizon AI',
       quote:
-        'Finding an engineer who can write production-grade concurrent backend code while possessing the visual taste of an elite design lead is essentially a unicorn. Alex took our rough wireframes and shipped a product that stunned our seed investors.',
+        'Finding an engineer who can write production-grade concurrent backend code while possessing the visual taste of an elite design lead is essentially a unicorn. Ashmin took our rough wireframes and shipped a product that stunned our seed investors.',
       metric: '0 to $1.2M ARR in 6 Months',
     },
     {
       name: 'Elena Rostova',
       role: 'VP of Product, Quantis Systems',
       quote:
-        'Handoff friction completely vanished. Alex didn’t ask for design specs—he authored the Figma token system and then directly wrote the React components with GSAP animations that felt buttery smooth and locked to 60 FPS.',
+        'Handoff friction completely vanished. Ashmin didn’t ask for design specs—he authored the Figma token system and then directly wrote the React components with GSAP animations that felt buttery smooth and locked to 60 FPS.',
       metric: '60% Faster Sprint Cycles',
     },
     {
       name: 'David Chen',
       role: 'Principal Engineer, Synapse Protocol',
       quote:
-        'Being self-taught gives Alex an incredible edge: he is not dogmatic, he solves problems end-to-end. His understanding of database indexing is as sharp as his eye for kerning and micro-interactions.',
+        'Being self-taught gives Ashmin an incredible edge: he is not dogmatic, he solves problems end-to-end. His understanding of database indexing is as sharp as his eye for kerning and micro-interactions.',
       metric: 'Lighthouse 100/100 Verified',
     },
   ];
 
   return (
-    <section className="py-24 border-b border-[#e5e7eb] bg-white">
+    <section id="testimonials" className="py-24 border-b border-[#e5e7eb] bg-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

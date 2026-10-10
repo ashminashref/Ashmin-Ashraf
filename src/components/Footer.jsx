@@ -29,6 +29,8 @@ export default function Footer({ onOpenContact }) {
     { label: 'About & Approach', href: '#about' },
     { label: 'Selected Projects', href: '#projects' },
     { label: 'Technical Stack', href: '#skills' },
+    { label: 'Kozhikode Services', href: '#services' },
+    { label: 'FAQ', href: '#faq' },
     { label: 'Journey & Experience', href: '#experience' },
   ];
 

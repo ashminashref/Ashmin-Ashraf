@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <!-- Dark Minimal Technical Canvas -->
+  <rect width="1200" height="630" fill="#0d0f14"/>
+  
+  <!-- Subtle Technical Grid Lines -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Gradient Accent Glow -->
+  <circle cx="950" cy="200" r="280" fill="#0055ff" fill-opacity="0.12" filter="blur(80px)"/>
+  
+  <!-- Corner Marks (Technical Framing) -->
+  <rect x="50" y="50" width="12" height="12" fill="#ffffff" fill-opacity="0.9"/>
+  <rect x="1138" y="50" width="12" height="12" fill="#ffffff" fill-opacity="0.9"/>
+  <rect x="50" y="568" width="12" height="12" fill="#ffffff" fill-opacity="0.9"/>
+  <rect x="1138" y="568" width="12" height="12" fill="#ffffff" fill-opacity="0.9"/>
+  <rect x="62" y="62" width="1076" height="506" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1"/>
+
+  <!-- Top Badge -->
+  <g transform="translate(100, 110)">
+    <rect width="470" height="34" fill="#161822" stroke="#252836" stroke-width="1"/>
+    <circle cx="20" cy="17" r="4" fill="#0055ff"/>
+    <text x="36" y="22" font-family="monospace" font-size="13" font-weight="600" fill="#9ca3af" letter-spacing="1.5">
+      TOP SOFTWARE DEVELOPER &amp; DESIGNER • KOZHIKODE
+    </text>
+  </g>
+
+  <!-- Big Editorial Headline -->
+  <text x="100" y="230" font-family="system-ui, -apple-system, sans-serif" font-size="64" font-weight="700" fill="#ffffff" letter-spacing="-1">
+    ASHMIN ASHRAF
+  </text>
+  
+  <text x="100" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="400" fill="#0055ff" letter-spacing="-0.5">
+    Best Software Developer &amp; UI/UX Designer
+  </text>
+  
+  <text x="100" y="345" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="300" fill="#9ca3af" letter-spacing="0">
+    Based in Kozhikode (Calicut), Kerala • Building Production Software Worldwide
+  </text>
+
+  <!-- Key Stack Pill Matrix -->
+  <g transform="translate(100, 420)">
+    <!-- Pill 1 -->
+    <rect x="0" y="0" width="140" height="42" fill="#161822" stroke="#252836"/>
+    <text x="70" y="26" font-family="monospace" font-size="14" fill="#ffffff" text-anchor="middle">React &amp; Next.js</text>
+    
+    <!-- Pill 2 -->
+    <rect x="155" y="0" width="140" height="42" fill="#161822" stroke="#252836"/>
+    <text x="225" y="26" font-family="monospace" font-size="14" fill="#ffffff" text-anchor="middle">Figma UI/UX</text>
+    
+    <!-- Pill 3 -->
+    <rect x="310" y="0" width="150" height="42" fill="#161822" stroke="#252836"/>
+    <text x="385" y="26" font-family="monospace" font-size="14" fill="#ffffff" text-anchor="middle">Python Backend</text>
+    
+    <!-- Pill 4 -->
+    <rect x="475" y="0" width="150" height="42" fill="#161822" stroke="#252836"/>
+    <text x="550" y="26" font-family="monospace" font-size="14" fill="#ffffff" text-anchor="middle">Design Systems</text>
+
+    <!-- Pill 5 -->
+    <rect x="640" y="0" width="150" height="42" fill="#161822" stroke="#252836"/>
+    <text x="715" y="26" font-family="monospace" font-size="14" fill="#ffffff" text-anchor="middle">GSAP Motion</text>
+  </g>
+
+  <!-- Bottom Coordinates & URL -->
+  <text x="100" y="525" font-family="monospace" font-size="13" fill="#6b7280" letter-spacing="1">
+    11.2588° N, 75.7804° E • KOZHIKODE, KERALA • HTTPS://ASHMINASHRAF.COM
+  </text>
+</svg>

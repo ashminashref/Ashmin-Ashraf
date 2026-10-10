@@ -1,0 +1,16 @@
+{
+  "name": "Ashmin Ashraf | Best Software Developer & Designer in Kozhikode",
+  "short_name": "Ashmin Ashraf",
+  "description": "Portfolio of Ashmin Ashraf — Top Software Developer & UI/UX Designer in Kozhikode, Kerala",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0055ff",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

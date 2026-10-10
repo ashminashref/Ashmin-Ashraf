@@ -11,7 +11,7 @@ export default function Navbar({ onOpenContact }) {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      const sections = ['home', 'about', 'projects', 'skills', 'experience', 'contact'];
+      const sections = ['home', 'about', 'projects', 'skills', 'services', 'testimonials', 'faq', 'experience', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const section of sections) {
@@ -36,6 +36,8 @@ export default function Navbar({ onOpenContact }) {
     { id: 'about', label: 'About' },
     { id: 'projects', label: 'Projects' },
     { id: 'skills', label: 'Skills' },
+    { id: 'services', label: 'Services' },
+    { id: 'faq', label: 'FAQ' },
     { id: 'experience', label: 'Journey' },
   ];
 
