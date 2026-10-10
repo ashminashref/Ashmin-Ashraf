@@ -4,31 +4,31 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://ashminashraf.com/</loc>
+    <loc>https://ashminashraf.netlify.app/</loc>
     <lastmod>2026-10-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ashminashraf.com/#projects</loc>
+    <loc>https://ashminashraf.netlify.app/#projects</loc>
     <lastmod>2026-10-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ashminashraf.com/#services</loc>
+    <loc>https://ashminashraf.netlify.app/#services</loc>
     <lastmod>2026-10-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ashminashraf.com/#faq</loc>
+    <loc>https://ashminashraf.netlify.app/#faq</loc>
     <lastmod>2026-10-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ashminashraf.com/#contact</loc>
+    <loc>https://ashminashraf.netlify.app/#contact</loc>
     <lastmod>2026-10-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
