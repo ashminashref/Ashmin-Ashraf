@@ -141,7 +141,7 @@ CREATE INDEX idx_telemetry_user ON telemetry_events (user_id);`
           <div className="space-y-3">
             <div className="text-xs font-mono text-[#0055ff] uppercase tracking-wider flex items-center gap-2">
               <span className="w-2 h-2 bg-[#0055ff]"></span>
-              <span>INTERACTIVE SANDBOX // 003</span>
+              <span>INTERACTIVE SANDBOX</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-normal tracking-tight text-white">
               Under the Hood:{' '}

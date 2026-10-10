@@ -47,7 +47,7 @@ export default function FaqSection() {
           <div className="space-y-3">
             <div className="text-xs font-mono text-[#6b7280] uppercase tracking-wider flex items-center gap-2">
               <span className="w-2 h-2 bg-[#0055ff] inline-block"></span>
-              <span>KNOWLEDGE BASE // FREQUENTLY ASKED QUESTIONS</span>
+              <span>FREQUENTLY ASKED QUESTIONS</span>
             </div>
             
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-normal tracking-tight text-[#121316]">

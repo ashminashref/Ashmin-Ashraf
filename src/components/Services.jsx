@@ -6,7 +6,7 @@ export default function Services({ onOpenContact }) {
   const tiers = [
     {
       id: 'sprint',
-      code: 'TIER // 01',
+      code: 'TIER 01',
       title: 'Full-Stack MVP Sprint',
       timeline: '2 — 3 WEEKS',
       badge: 'POPULAR FOR STARTUPS',
@@ -23,7 +23,7 @@ export default function Services({ onOpenContact }) {
     },
     {
       id: 'design-system',
-      code: 'TIER // 02',
+      code: 'TIER 02',
       title: 'Design System & Frontend Package',
       timeline: '3 — 4 WEEKS',
       badge: 'ENTERPRISE READY',
@@ -41,7 +41,7 @@ export default function Services({ onOpenContact }) {
     },
     {
       id: 'retainer',
-      code: 'TIER // 03',
+      code: 'TIER 03',
       title: 'Dedicated Product Engineer',
       timeline: 'ONGOING / MONTHLY',
       badge: 'FULL-CYCLE OWNERSHIP',
@@ -66,12 +66,12 @@ export default function Services({ onOpenContact }) {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#e5e7eb] gap-6">
           <div className="space-y-3">
             <div className="text-xs font-mono text-[#6b7280] uppercase tracking-wider flex items-center gap-2">
-              <span className="text-[#0055ff] font-bold">////////</span>
-              <span>ENGAGEMENT SPECS // 008</span>
+              <span className="w-2 h-2 bg-[#0055ff] inline-block"></span>
+              <span>COLLABORATION MODELS</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-normal tracking-tight text-[#121316]">
-              / Collaboration Models.{' '}
-              <span className="block text-[#0055ff] font-medium">Clear Scopes, Predictable Output /</span>
+              Collaboration Models.{' '}
+              <span className="block text-[#0055ff] font-medium">Clear Scopes, Predictable Output</span>
             </h2>
           </div>
 

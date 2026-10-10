@@ -8,7 +8,7 @@ export default function Methodology() {
       num: '01',
       title: 'Discovery & Wireframing',
       icon: Search,
-      phase: 'PHASE // ARCHITECTURE',
+      phase: 'PHASE: ARCHITECTURE',
       desc: 'Deconstructing core product constraints, information architecture, and user mental models. Creating low-fidelity functional wireframes that establish structural logic before aesthetic layers.',
       deliverables: ['Information Architecture', 'User Flows', 'Interactive Wireframes'],
     },
@@ -16,7 +16,7 @@ export default function Methodology() {
       num: '02',
       title: 'Design Systems & Tokens',
       icon: Compass,
-      phase: 'PHASE // DESIGN SPEC',
+      phase: 'PHASE: DESIGN SPEC',
       desc: 'Defining mathematical typography scales, semantic color variables, spacing systems, and reusable Figma components. Every visual attribute is named for seamless translation into CSS tokens.',
       deliverables: ['Figma Token Variables', 'Component States Matrix', 'Micro-interaction Storyboards'],
     },
@@ -24,7 +24,7 @@ export default function Methodology() {
       num: '03',
       title: 'Full-Stack Implementation',
       icon: Terminal,
-      phase: 'PHASE // ENGINEERING',
+      phase: 'PHASE: ENGINEERING',
       desc: 'Writing clean, declarative React 19 interfaces paired with robust Node/Python endpoints and typed PostgreSQL schemas. Crafting buttery GSAP micro-animations that feel physical and tactile.',
       deliverables: ['TypeScript Components', 'REST/GraphQL API Endpoints', 'GSAP Scroll & Hover Physics'],
     },
@@ -32,7 +32,7 @@ export default function Methodology() {
       num: '04',
       title: 'Profiling & Deployment',
       icon: Rocket,
-      phase: 'PHASE // PRODUCTION',
+      phase: 'PHASE: PRODUCTION',
       desc: 'Benchmarking Core Web Vitals, profiling render bottlenecks, optimizing bundle footprints via dynamic imports, and configuring automated CI/CD deployment pipelines on edge infrastructure.',
       deliverables: ['Lighthouse 100/100 Audit', 'Automated CI/CD Workflows', 'Zero-Downtime Edge Deploy'],
     },
@@ -46,12 +46,12 @@ export default function Methodology() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#e5e7eb] gap-6">
           <div className="space-y-3">
             <div className="text-xs font-mono text-[#6b7280] uppercase tracking-wider flex items-center gap-2">
-              <span className="text-[#0055ff] font-bold">//////</span>
-              <span>WORKFLOW ENGINE // 006</span>
+              <span className="w-2 h-2 bg-[#0055ff] inline-block"></span>
+              <span>WORKFLOW METHODOLOGY</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-normal tracking-tight text-[#121316]">
-              / Four-Stage Methodology.{' '}
-              <span className="block text-[#0055ff] font-medium">Concept to Production /</span>
+              Four-Stage Methodology.{' '}
+              <span className="block text-[#0055ff] font-medium">Concept to Production</span>
             </h2>
           </div>
 

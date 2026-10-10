@@ -35,12 +35,12 @@ export default function Testimonials() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#e5e7eb] gap-6">
           <div className="space-y-3">
             <div className="text-xs font-mono text-[#6b7280] uppercase tracking-wider flex items-center gap-2">
-              <span className="text-[#0055ff] font-bold">/////////</span>
-              <span>VERIFIED ENDORSEMENTS // 009</span>
+              <span className="w-2 h-2 bg-[#0055ff] inline-block"></span>
+              <span>CLIENT ENDORSEMENTS</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-normal tracking-tight text-[#121316]">
-              / What Founders & Tech Leads Say.{' '}
-              <span className="block text-[#0055ff] font-medium">Peer Validations /</span>
+              What Founders &amp; Tech Leads Say.{' '}
+              <span className="block text-[#0055ff] font-medium">Verified Feedback</span>
             </h2>
           </div>
 
@@ -58,7 +58,7 @@ export default function Testimonials() {
             >
               <div className="space-y-6">
                 <div className="flex items-center justify-between text-xs font-mono text-[#9ca3af]">
-                  <span className="text-[#0055ff] font-bold">ENDORSEMENT // 0{idx + 1}</span>
+                  <span className="text-[#0055ff] font-bold">ENDORSEMENT 0{idx + 1}</span>
                   <div className="flex items-center gap-1 text-[#22c55e]">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                     <span className="text-[10px]">VERIFIED</span>

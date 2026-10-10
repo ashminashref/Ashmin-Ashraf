@@ -5,28 +5,28 @@ import { MapPin, Code2, Palette, Zap, ShieldCheck, ArrowUpRight, CheckCircle2, G
 export default function LocalSeoSection({ onOpenContact }) {
   const pillars = [
     {
-      code: 'CAPABILITY // 01',
+      code: 'CAPABILITY 01',
       title: 'Full-Stack Software Engineering',
       desc: 'Building responsive, scalable web applications with React 19, Next.js, Python, and PostgreSQL. Architected for speed, resilience, and clean maintainable code.',
       icon: Code2,
       tags: ['React 19', 'Next.js', 'Python', 'PostgreSQL', 'APIs'],
     },
     {
-      code: 'CAPABILITY // 02',
+      code: 'CAPABILITY 02',
       title: 'UI/UX & Product Design Craft',
       desc: 'Translating complex business workflows into intuitive, beautiful Figma design systems. Every token, typography scale, and micro-interaction is precision engineered.',
       icon: Palette,
       tags: ['Figma', 'Design Systems', 'Micro-Interactions', 'Prototyping'],
     },
     {
-      code: 'CAPABILITY // 03',
+      code: 'CAPABILITY 03',
       title: 'Zero Handoff Friction & Speed',
       desc: 'When the designer is also the full-stack engineer, ideas move from wireframes to deployed production code in days—not months of agency back-and-forth.',
       icon: Zap,
       tags: ['Rapid MVPs', 'Agile Delivery', 'Direct Handoff', '100% Alignment'],
     },
     {
-      code: 'CAPABILITY // 04',
+      code: 'CAPABILITY 04',
       title: 'Core Web Vitals & Local SEO Edge',
       desc: 'Engineered with sub-second page loads, semantic HTML5, schema markup, and responsive physics. Built to rank top-of-search on Google across Kozhikode and global markets.',
       icon: ShieldCheck,
@@ -52,7 +52,7 @@ export default function LocalSeoSection({ onOpenContact }) {
           <div className="space-y-3">
             <div className="text-xs font-mono text-[#6b7280] uppercase tracking-wider flex items-center gap-2">
               <span className="w-2 h-2 bg-[#0055ff] inline-block"></span>
-              <span>KOZHIKODE TECH LEADERSHIP // 004</span>
+              <span>KOZHIKODE TECH LEADERSHIP</span>
             </div>
             
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-normal tracking-tight text-[#121316]">

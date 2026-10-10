@@ -38,7 +38,7 @@ export default function CtaSection({ onOpenContact }) {
 
             <div className="space-y-3 sm:space-y-4">
               <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-normal tracking-tight leading-[1.12] sm:leading-[1.08] break-words">
-                Vision, <span className="text-[#0055ff] font-semibold">[Engineered]</span>
+                Vision, <span className="text-[#0055ff] font-semibold">Engineered</span>.
                 <br />
                 Ready to build something iconic?
               </h2>
