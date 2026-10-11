@@ -13,46 +13,51 @@ export default function Projects() {
       id: 'prj-01',
       code: '01',
       type: 'dev',
-      typeLabel: 'Development',
-      title: 'Dotbey Media',
-      category: 'Growth Marketing & Web Platform',
-      year: '2026',
-      role: 'Full-Stack Engineer & Digital Strategist',
-      liveUrl: 'https://dotbeymedia.netlify.app/',
-      githubUrl: 'https://github.com/ashminashref/Dotbey',
+      typeLabel: 'Full-Stack',
+      title: 'VOTte',
+      category: 'Digital Voting Platform',
+      year: '2025',
+      role: 'Full-Stack Developer & UI Designer',
+      liveUrl: 'https://github.com/ashminashref/votte-digital',
+      githubUrl: 'https://github.com/ashminashref/votte-digital',
       behanceUrl: 'https://www.behance.net/ashminashraf',
-      image: '/projects/dotbey.png',
+      image: '/projects/votte.png',
       description:
-        'High-performance agency platform with custom 4K showcases, interactive enquiry flows, and conversion-optimized funnel architecture.',
-      tech: ['Next.js', 'React 19', 'TailwindCSS', 'Netlify Edge'],
+        'Democracy, Delivered. A secure, transparent digital voting platform for educational institutions and organizations, replacing paper-based processes with authenticated voting.',
+      tech: ['Python', 'Django', 'MySQL', 'JavaScript', 'NumPy'],
+      impact:
+        'Engineered authenticated voter access in Django, protected database integrity in MySQL, and streamlined admin tallying with Python NumPy utilities.',
       specs: [
-        { label: 'Platform Core', value: 'Next.js Turbopack & React 19' },
-        { label: 'Performance Metric', value: 'Sub-second First Contentful Paint' },
-        { label: 'Core Offerings', value: 'Web Engineering, 4K Video, Meta Ads, SEO' },
-        { label: 'Deployment', value: 'Netlify Edge' },
+        { label: 'Platform Headline', value: 'VOTte • Democracy, Delivered.' },
+        { label: 'Backend Framework', value: 'Python 3 & Django Framework' },
+        { label: 'Database', value: 'MySQL Relational Schema' },
+        { label: 'Data Processing', value: 'NumPy for vote aggregation & tallying' },
+        { label: 'Frontend', value: 'HTML5, CSS3, JavaScript, Responsive UI' },
       ],
     },
     {
       id: 'prj-02',
       code: '02',
       type: 'dev',
-      typeLabel: 'Development',
-      title: 'Megwedd Studios',
-      category: 'Luxury Wedding & Event Visuals',
+      typeLabel: 'AI & Frontend',
+      title: 'Weaver AI',
+      category: 'AI CSS Code Generator',
       year: '2025',
-      role: 'UI Designer & Frontend Engineer',
-      liveUrl: 'https://megwedd.vercel.app/',
-      githubUrl: 'https://github.com/ashminashref/megwedd',
+      role: 'Frontend Developer & AI Integration',
+      liveUrl: 'https://github.com/ashminashref/weaver-ai',
+      githubUrl: 'https://github.com/ashminashref/weaver-ai',
       behanceUrl: 'https://www.behance.net/ashminashraf',
-      image: '/projects/megwedd.png',
+      image: '/projects/weaver.jpg',
       description:
-        'Cinematic portfolio and inquiry platform engineered with GSAP scroll-triggered physics, editorial typography, and grain aesthetics.',
-      tech: ['React', 'Vite', 'GSAP', 'TailwindCSS'],
+        'AI-powered CSS generation platform transforming natural language prompts into responsive, production-ready code.',
+      tech: ['React.js', 'Gemini AI API', 'JavaScript', 'Tailwind CSS'],
+      impact:
+        'Integrated Gemini AI API for natural language prompt analysis and code generation, paired with real-time UI preview and one-click copy.',
       specs: [
-        { label: 'Animation Engine', value: 'GSAP ScrollTrigger Timeline' },
-        { label: 'Aesthetic Palette', value: 'Darkroom Noir & Grain Textures' },
-        { label: 'Typography Spec', value: 'Inter Tight & Editorial Serif' },
-        { label: 'Deployment', value: 'Vercel' },
+        { label: 'AI Integration', value: 'Google Gemini AI API' },
+        { label: 'Frontend Core', value: 'React.js with Hooks & State Management' },
+        { label: 'Styling Engine', value: 'Tailwind CSS' },
+        { label: 'Source Repo', value: 'github.com/ashminashref/weaver-ai' },
       ],
     },
     {
@@ -60,22 +65,24 @@ export default function Projects() {
       code: '03',
       type: 'dev',
       typeLabel: 'Development',
-      title: 'Mahal Connect',
-      category: 'Community Management PWA',
-      year: '2025',
-      role: 'Product Designer & Full-Stack Developer',
-      liveUrl: 'https://thalayadmahal.netlify.app/',
-      githubUrl: 'https://github.com/ashminashref/thalayad_mahal',
+      title: 'Dotbey Media',
+      category: 'Agency Web Platform',
+      year: '2026',
+      role: 'Frontend Engineer & UI Designer',
+      liveUrl: 'https://dotbeymedia.netlify.app/',
+      githubUrl: 'https://github.com/ashminashref/Dotbey',
       behanceUrl: 'https://www.behance.net/ashminashraf',
-      image: '/projects/mahal.png',
+      image: '/projects/dotbey.png',
       description:
-        'Progressive Web App (PWA) for community administration with member registries, daily announcements, and digital dues workflows.',
-      tech: ['React', 'Vite', 'PWA', 'TailwindCSS'],
+        'High-performance marketing platform built with modern React, custom visual showcases, and conversion-optimized funnels.',
+      tech: ['React', 'Next.js 15', 'JavaScript', 'Tailwind CSS', 'Netlify Edge'],
+      impact:
+        'Engineered edge streaming and CSS purging, achieving a 99/100 Lighthouse score and sub-0.8s First Contentful Paint.',
       specs: [
-        { label: 'Architecture', value: 'Installable Progressive Web App (PWA)' },
-        { label: 'Core Modules', value: 'Member ID, Family Registry, Announcements' },
-        { label: 'Payment Channel', value: 'Dues & Charity Contribution Channel' },
-        { label: 'Deployment', value: 'Netlify' },
+        { label: 'Platform Core', value: 'Next.js 15 App Router & React' },
+        { label: 'Performance Metric', value: 'Sub-second LCP (0.78s) & 99/100 Lighthouse' },
+        { label: 'Architecture', value: 'Edge-Rendered SSR' },
+        { label: 'Deployment', value: 'Netlify Edge CI/CD' },
       ],
     },
     {
@@ -83,68 +90,73 @@ export default function Projects() {
       code: '04',
       type: 'dev',
       typeLabel: 'Development',
-      title: 'EchoBoard',
-      category: 'Campus Grievance & Tracking Portal',
+      title: 'Megwedd Studios',
+      category: 'Editorial Visuals & Motion',
       year: '2025',
-      role: 'Full-Stack Developer',
-      liveUrl: 'https://techolasecho.netlify.app/',
-      githubUrl: 'https://github.com/ashminashref/echoboard',
+      role: 'Frontend Engineer & Motion Designer',
+      liveUrl: 'https://megwedd.vercel.app/',
+      githubUrl: 'https://github.com/ashminashref/megwedd',
       behanceUrl: 'https://www.behance.net/ashminashraf',
-      image: '/projects/echoboard.png',
+      image: '/projects/megwedd.png',
       description:
-        'Responsive web portal for campus students to submit and track concerns with role-based auth and status pipelines.',
-      tech: ['React', 'Vite', 'TailwindCSS', 'REST APIs'],
+        'Cinematic editorial portfolio and visual inquiry platform featuring custom GSAP scroll physics and darkroom noir styling.',
+      tech: ['React', 'Vite', 'GSAP ScrollTrigger', 'Tailwind CSS', 'Vercel'],
+      impact:
+        'Optimized GPU-composited animation timelines, locking playback to a steady 60 FPS on mobile and desktop devices.',
       specs: [
-        { label: 'Security Model', value: 'Separate Student / Admin Portals' },
-        { label: 'Pipeline States', value: 'Submitted ➔ In Progress ➔ Resolved' },
-        { label: 'Frontend Tooling', value: 'React with Vite & TailwindCSS' },
-        { label: 'Deployment', value: 'Netlify' },
+        { label: 'Animation Engine', value: 'GSAP ScrollTrigger Timelines' },
+        { label: 'Performance Metric', value: 'Consistent 60 FPS with zero layout reflows' },
+        { label: 'Deployment', value: 'Vercel Production Edge' },
+        { label: 'Source Repo', value: 'github.com/ashminashref/megwedd' },
       ],
     },
     {
       id: 'prj-05',
       code: '05',
-      type: 'design',
-      typeLabel: 'Design',
-      title: 'Dotbey',
-      category: 'Brand Identity & UI/UX Case Study',
-      year: '2026',
-      role: 'Brand & Product Designer',
-      liveUrl: 'https://www.behance.net/gallery/256815173/Dotbey/modules/1498582289',
-      githubUrl: 'https://github.com/ashminashref/Dotbey',
-      behanceUrl: 'https://www.behance.net/gallery/256815173/Dotbey/modules/1498582289',
-      image: '/projects/dotbey_design.png',
+      type: 'dev',
+      typeLabel: 'PWA',
+      title: 'Mahal Connect',
+      category: 'Community Administration PWA',
+      year: '2025',
+      role: 'Full-Stack Developer & UI Designer',
+      liveUrl: 'https://thalayadmahal.netlify.app/',
+      githubUrl: 'https://github.com/ashminashref/thalayad_mahal',
+      behanceUrl: 'https://www.behance.net/ashminashraf',
+      image: '/projects/mahal.png',
       description:
-        'Complete brand identity, typography scale, design tokens, and responsive digital interface system documented on Behance.',
-      tech: ['Figma', 'UI/UX Design', 'Brand Identity', 'Design Tokens'],
+        'Installable Progressive Web App for local community record administration, member registries, and announcements.',
+      tech: ['React', 'Vite', 'PWA / Service Worker', 'Tailwind CSS', 'REST APIs'],
+      impact:
+        'Engineered offline-first state synchronization with Service Worker caching for reliable access in constrained network environments.',
       specs: [
-        { label: 'Platform Spec', value: 'Behance Featured Case Study' },
-        { label: 'Design System', value: 'Monogram, Typography & Component Tokens' },
-        { label: 'Color Palette', value: 'Electric Blue & Dark Modernist Tones' },
-        { label: 'Case Study URL', value: 'behance.net/gallery/256815173/Dotbey' },
+        { label: 'Architecture', value: 'Progressive Web App (Offline-Ready)' },
+        { label: 'State & Caching', value: 'IndexedDB + Service Worker' },
+        { label: 'Deployment', value: 'Netlify Edge' },
+        { label: 'Source Repo', value: 'github.com/ashminashref/thalayad_mahal' },
       ],
     },
     {
       id: 'prj-06',
       code: '06',
       type: 'design',
-      typeLabel: 'Design',
-      title: 'Spotify Redesign',
-      category: 'Mobile & Web Music Player UI/UX',
-      year: '2025',
-      role: 'UI/UX Designer',
-      liveUrl: 'https://www.behance.net/gallery/224876661/Spotify-Redesign',
-      githubUrl: null,
-      behanceUrl: 'https://www.behance.net/gallery/224876661/Spotify-Redesign',
-      image: '/projects/spotify_redesign.png',
+      typeLabel: 'Design System',
+      title: 'Dotbey Design System',
+      category: 'Brand Tokens & Component Library',
+      year: '2026',
+      role: 'Product Designer & Systems Lead',
+      liveUrl: 'https://www.behance.net/gallery/256815173/Dotbey/modules/1498582289',
+      githubUrl: 'https://github.com/ashminashref/Dotbey',
+      behanceUrl: 'https://www.behance.net/gallery/256815173/Dotbey/modules/1498582289',
+      image: '/projects/dotbey_design.png',
       description:
-        'Reimagined mobile and desktop listening experience featuring refined playback controls, glassmorphic elements, and user-centric discovery architecture.',
-      tech: ['Figma', 'Mobile UI/UX', 'Glassmorphism', 'Design Systems'],
+        'End-to-end design token architecture and modular component library bridging Figma variables directly into Tailwind CSS.',
+      tech: ['Figma Variables', 'Design Tokens', 'Tailwind Config', 'Atomic Design'],
+      impact:
+        'Standardized 1:1 token mappings between Figma collections and Tailwind theme tokens, reducing UI turnaround by 60%.',
       specs: [
-        { label: 'Platform Spec', value: 'Behance Featured Case Study' },
-        { label: 'Interface Views', value: 'iPhone 15 Pro & MacBook Pro Web App' },
-        { label: 'Visual Style', value: 'Darkroom Noir with Spotify Neon Green' },
-        { label: 'Case Study URL', value: 'behance.net/gallery/224876661/Spotify-Redesign' },
+        { label: 'Platform Spec', value: 'Behance Case Study & GitHub System' },
+        { label: 'Design System', value: 'Figma Variables mapped to CSS Tokens' },
+        { label: 'Source Repo', value: 'github.com/ashminashref/Dotbey' },
       ],
     },
   ];
@@ -162,7 +174,6 @@ export default function Projects() {
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
-    // When changing filters, keep initial 2 visible
     setShowAll(false);
   };
 
@@ -175,17 +186,17 @@ export default function Projects() {
           <div className="space-y-2 sm:space-y-3">
             <div className="text-xs font-mono text-[#6b7280] uppercase tracking-wider flex items-center gap-2">
               <span className="w-2 h-2 bg-[#0055ff] inline-block"></span>
-              <span>INDEXED WORKS • PRODUCTION & DESIGN</span>
+              <span>INDEXED WORKS • CASE STUDIES &amp; SOURCE REPOSITORIES</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-normal tracking-tight text-[#121316]">
               Selected Projects.{' '}
-              <span className="block text-[#0055ff] font-medium">Web Apps & Design Studies</span>
+              <span className="block text-[#0055ff] font-medium">Production Systems &amp; Case Studies</span>
             </h2>
           </div>
 
           <div className="space-y-2 max-w-md">
             <p className="text-xs sm:text-sm md:text-base text-[#4b5563] font-light leading-relaxed">
-              Real software and design systems built end-to-end. Click live links to explore production sites or inspect code.
+              Real software and design systems built end-to-end. Every card includes technical hurdles solved, stack badges, live links, and GitHub code inspection.
             </p>
             <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
               <a
@@ -195,7 +206,7 @@ export default function Projects() {
                 className="text-[#0055ff] hover:underline flex items-center gap-1 font-semibold"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
-                <span>GITHUB REPOSITORIES ↗</span>
+                <span>GITHUB PROFILE ↗</span>
               </a>
               <span className="text-[#d1d5db] hidden xs:inline">|</span>
               <a
@@ -211,7 +222,7 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Dedicated Filter Buttons: All, Development, Design (Horizontal Scroll on Mobile) */}
+        {/* Dedicated Filter Buttons */}
         <div className="flex items-center gap-2 mb-8 sm:mb-10 overflow-x-auto pb-2 border-b border-[#f3f4f6] -mx-4 px-4 sm:mx-0 sm:px-0 flex-nowrap">
           <button
             onClick={() => handleTabChange('all')}
@@ -221,7 +232,7 @@ export default function Projects() {
                 : 'bg-[#f9f9fb] text-[#4b5563] hover:text-black hover:bg-[#e5e7eb] border border-[#e5e7eb]'
             }`}
           >
-            <span>ALL PROJECTS</span>
+            <span>ALL CASE STUDIES</span>
             <span
               className={`text-[10px] px-1.5 py-0.2 rounded-xs font-mono ${
                 activeTab === 'all' ? 'bg-white/20 text-white' : 'bg-[#e5e7eb] text-[#374151]'
@@ -240,7 +251,7 @@ export default function Projects() {
             }`}
           >
             <Code2 className="w-3.5 h-3.5 text-[#0055ff]" />
-            <span>DEVELOPMENT</span>
+            <span>DEVELOPMENT &amp; APPS</span>
             <span
               className={`text-[10px] px-1.5 py-0.2 rounded-xs font-mono ${
                 activeTab === 'dev' ? 'bg-white/20 text-white' : 'bg-[#e5e7eb] text-[#374151]'
@@ -259,7 +270,7 @@ export default function Projects() {
             }`}
           >
             <Palette className="w-3.5 h-3.5 text-[#0055ff]" />
-            <span>DESIGN</span>
+            <span>DESIGN SYSTEMS &amp; UI</span>
             <span
               className={`text-[10px] px-1.5 py-0.2 rounded-xs font-mono ${
                 activeTab === 'design' ? 'bg-white/20 text-white' : 'bg-[#e5e7eb] text-[#374151]'
@@ -305,12 +316,12 @@ export default function Projects() {
                     <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80 shrink-0 inline-block" />
                     <span className="ml-1 sm:ml-2 text-[10px] text-[#9ca3af] truncate max-w-[110px] xs:max-w-[180px] sm:max-w-[260px]">
                       {project.type === 'design' 
-                        ? (project.title === 'Dotbey' ? 'behance.net/gallery/256815173/Dotbey' : 'behance.net/gallery/224876661/Spotify-Redesign')
+                        ? (project.title.includes('Dotbey') ? 'behance.net/gallery/256815173/Dotbey' : 'behance.net/gallery/224876661/Spotify-Redesign')
                         : project.liveUrl.replace('https://', '')}
                     </span>
                   </div>
                   <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-[#388bfd] bg-[#388bfd]/10 px-1.5 sm:px-2 py-0.5 shrink-0">
-                    {project.type === 'dev' ? 'LIVE DEPLOYMENT' : 'BEHANCE STUDY'}
+                    {project.type === 'dev' ? 'PRODUCTION DEPLOYMENT' : 'CASE STUDY SPEC'}
                   </span>
                 </div>
 
@@ -318,7 +329,7 @@ export default function Projects() {
                 <div className="relative h-48 xs:h-56 sm:h-64 overflow-hidden bg-[#0d1117] flex items-center justify-center">
                   <img
                     src={project.image}
-                    alt={`${project.title} - ${project.category} engineered by Kozhikode software developer & designer Ashmin Ashraf`}
+                    alt={`${project.title} - ${project.category} engineered by Design Engineer Ashmin Ashraf`}
                     className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
                     loading="lazy"
                   />
@@ -326,40 +337,64 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Clean, Streamlined Project Body */}
+              {/* Case Study Structured Card Body */}
               <div className="p-5 sm:p-7 space-y-4 bg-white flex-1 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <h3 className="text-xl sm:text-2xl font-sans font-semibold text-[#121316] tracking-tight group-hover:text-[#0055ff] transition-colors">
-                    {project.title}
-                  </h3>
+                <div className="space-y-3">
+                  <div className="space-y-1">
+                    <h3 className="text-xl sm:text-2xl font-sans font-semibold text-[#121316] tracking-tight group-hover:text-[#0055ff] transition-colors">
+                      {project.title}
+                    </h3>
+
+                    {/* Structured Metadata: Role / Contribution */}
+                    <div className="flex items-center gap-1.5 text-xs font-mono text-[#0055ff] font-medium">
+                      <span className="text-[#6b7280] uppercase">Role:</span>
+                      <span>{project.role}</span>
+                    </div>
+                  </div>
+
                   <p className="text-xs sm:text-sm text-[#4b5563] leading-relaxed font-light">
                     {project.description}
                   </p>
+
+                  {/* Structured Metadata: Key Impact / Challenge Solved */}
+                  <div className="p-3 bg-[#f9f9fb] border-l-2 border-[#0055ff] border-y border-r border-[#e5e7eb] space-y-1">
+                    <div className="text-[10px] font-mono text-[#6b7280] uppercase tracking-wider font-semibold">
+                      Key Technical Challenge &amp; Impact:
+                    </div>
+                    <p className="text-xs text-[#1f2937] leading-relaxed font-sans">
+                      {project.impact}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="space-y-4 pt-2">
-                  {/* Tech Tags */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tech.map((t, i) => (
-                      <span
-                        key={i}
-                        className="text-[10px] sm:text-[11px] font-mono px-2 py-0.5 sm:py-1 bg-[#f3f4f6] text-[#374151] border border-[#e5e7eb]"
-                      >
-                        {t}
-                      </span>
-                    ))}
+                  {/* Structured Metadata: Tech Stack Badges */}
+                  <div className="space-y-1.5">
+                    <div className="text-[10px] font-mono text-[#6b7280] uppercase tracking-wider">
+                      Tech Stack:
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tech.map((t, i) => (
+                        <span
+                          key={i}
+                          className="text-[10px] sm:text-[11px] font-mono px-2 py-0.5 bg-[#f3f4f6] text-[#374151] border border-[#e5e7eb] font-medium"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Primary Action Buttons */}
+                  {/* Primary Action Buttons: Both Live Demo AND GitHub / Source Code on Every Card */}
                   <div className="pt-3 sm:pt-4 border-t border-[#f3f4f6] flex flex-wrap items-center justify-between gap-2.5">
                     <div className="flex flex-wrap items-center gap-2">
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-1.5 bg-black text-white hover:bg-[#0055ff] transition-colors text-xs font-mono uppercase font-semibold"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 bg-black text-white hover:bg-[#0055ff] transition-colors text-xs font-mono uppercase font-semibold border border-black shadow-xs"
                       >
-                        <span>{project.type === 'design' ? 'VIEW ON BEHANCE' : 'LIVE SITE'}</span>
+                        <span>{project.type === 'design' ? 'VIEW CASE STUDY' : 'LIVE DEMO'}</span>
                         <ExternalLink className="w-3.5 h-3.5" />
                       </a>
 
@@ -368,18 +403,18 @@ export default function Projects() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#d1d5db] bg-white text-[#374151] hover:text-black hover:border-black transition-colors text-xs font-mono uppercase"
-                          title="View GitHub Repository"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 border-2 border-black bg-white text-black hover:bg-black hover:text-white transition-all text-xs font-mono uppercase font-semibold"
+                          title="Inspect GitHub Source Code"
                         >
                           <GithubIcon className="w-3.5 h-3.5" />
-                          <span>CODE</span>
+                          <span>SOURCE CODE</span>
                         </a>
                       )}
                     </div>
 
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="text-xs font-mono font-semibold uppercase tracking-wider text-black hover:text-[#0055ff] flex items-center gap-1 transition-colors cursor-pointer py-1"
+                      className="text-xs font-mono font-semibold uppercase tracking-wider text-black hover:text-[#0055ff] flex items-center gap-1 transition-colors cursor-pointer py-1 ml-auto"
                     >
                       <ScrambleText text="SPECS" speed={20} duration={300} />
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -440,7 +475,7 @@ export default function Projects() {
               <div className="border-b border-[#e5e7eb] bg-[#0d1117] h-48 xs:h-56 sm:h-64 overflow-hidden shrink-0">
                 <img
                   src={selectedProject.image}
-                  alt={`${selectedProject.title} - ${selectedProject.category} engineered by Kozhikode software developer & designer Ashmin Ashraf`}
+                  alt={`${selectedProject.title} - ${selectedProject.category} engineered by Design Engineer Ashmin Ashraf`}
                   className="w-full h-full object-cover object-center"
                 />
               </div>

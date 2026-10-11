@@ -24,7 +24,7 @@ export default function FaqSection() {
     {
       question: 'What tech stack do you use for software development?',
       answer:
-        'Frontend: React 19, Next.js, Vite, TypeScript, TailwindCSS, and GSAP animations. Backend: Python, Django, FastAPI, PostgreSQL, and RESTful APIs. Design: Figma, design tokens, WCAG 2.2 accessibility, and responsive typography scales. Every project is built for sub-second page loads and top search engine rankings.',
+        'Frontend: React 19, Next.js, Vite, JavaScript, TailwindCSS, and GSAP animations. Backend: Python, Django, MySQL, and RESTful APIs. Design: Figma, design tokens, WCAG 2.2 accessibility, and responsive typography scales. Every project is built for sub-second page loads and top search engine rankings.',
     },
     {
       question: 'Can businesses in Kozhikode hire you for on-site or remote collaboration?',

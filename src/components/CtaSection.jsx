@@ -1,100 +1,89 @@
 import React, { useState } from 'react';
 import ScrambleText from './ScrambleText';
-import { ArrowUpRight, Copy, Check, Calendar } from 'lucide-react';
+import { Mail, Download } from 'lucide-react';
 
 export default function CtaSection({ onOpenContact }) {
-  const [copied, setCopied] = useState(false);
   const email = 'ashminashraf07@gmail.com';
-  const calLink = 'https://cal.com/ashmin-ashraf/schedule-meeting?user=ashmin-ashraf';
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+  const resumeLink = '/resume.pdf';
 
   return (
-    <section className="py-14 sm:py-24 bg-[#121316] text-white relative overflow-hidden border-b border-[#26282e]">
+    <section className="py-12 sm:py-20 bg-[#121316] text-white relative overflow-hidden border-b border-[#26282e]">
       {/* Background Subtle Tech Grid */}
       <div className="absolute inset-0 bg-tech-grid-dark opacity-40 pointer-events-none" />
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Aeye Boxed Technical Frame with Corner Marks */}
-        <div className="border border-[#2a2c33] bg-[#0e1014] p-5 sm:p-10 lg:p-20 relative">
+        {/* Boxed Technical Frame with Corner Marks */}
+        <div className="border border-[#2a2c33] bg-[#0e1014] p-6 sm:p-10 lg:p-16 relative">
           
-          {/* Corner Marks (Aeye signature [ ] framing squares) */}
-          <div className="absolute -top-1 -left-1 sm:-top-1.5 sm:-left-1.5 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-white" />
-          <div className="absolute -top-1 -right-1 sm:-top-1.5 sm:-right-1.5 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-white" />
-          <div className="absolute -bottom-1 -left-1 sm:-bottom-1.5 sm:-left-1.5 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-white" />
-          <div className="absolute -bottom-1 -right-1 sm:-bottom-1.5 sm:-right-1.5 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-white" />
+          {/* Corner Marks */}
+          <div className="absolute -top-1 -left-1 w-2.5 h-2.5 bg-white" />
+          <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-white" />
+          <div className="absolute -bottom-1 -left-1 w-2.5 h-2.5 bg-white" />
+          <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-white" />
 
-          <div className="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
+          <div className="max-w-2xl mx-auto text-center space-y-5 sm:space-y-6">
             
-            <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 text-[10px] sm:text-xs font-mono bg-[#16181e] border border-[#2a2c33] text-[#0055ff] max-w-full">
+            <div className="inline-flex items-center gap-2 px-3 py-1 text-[10px] sm:text-xs font-mono bg-[#16181e] border border-[#2a2c33] text-[#22c55e]">
               <span className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse shrink-0" />
-              <span className="truncate">STATUS: ACCEPTING VENTURES FOR 2026 – 2027</span>
+              <span>STATUS: OPEN TO FULL-TIME ROLES</span>
             </div>
 
-            <div className="space-y-3 sm:space-y-4">
-              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-normal tracking-tight leading-[1.12] sm:leading-[1.08] break-words">
-                Vision, <span className="text-[#0055ff] font-semibold">Engineered</span>.
-                <br />
-                Ready to build something iconic?
+            <div className="space-y-2 sm:space-y-3">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-sans font-normal tracking-tight leading-tight">
+                Let's build{' '}
+                <span className="text-[#0055ff] font-semibold">something together</span>.
               </h2>
 
-              <p className="text-xs sm:text-base lg:text-lg text-[#9ca3af] font-light max-w-xl mx-auto leading-relaxed">
-                Whether you need a complete 0-to-1 MVP, a scalable design system, or a dedicated full-stack design technologist—let's discuss your roadmap.
+              <p className="text-xs sm:text-base text-[#9ca3af] font-light max-w-lg mx-auto leading-relaxed">
+                Full Stack Python Developer with design knowledge. Available for full-time frontend, backend, and product engineering opportunities.
               </p>
             </div>
 
-            {/* Actions: Direct Cal.com Connect Button & Copy Email */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-4">
-              <a
-                href={calLink}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto justify-center group px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-black hover:bg-[#0055ff] hover:text-white transition-all text-xs font-mono uppercase tracking-wider font-semibold border border-white flex items-center gap-2 shadow-lg"
-              >
-                <Calendar className="w-4 h-4 text-[#0055ff] group-hover:text-white transition-colors shrink-0" />
-                <ScrambleText text="LET'S CONNECT (CAL.COM)" speed={20} duration={350} />
-                <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
-              </a>
-
+            {/* Simple Buttons: Connect Now, Email, Resume */}
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <button
-                onClick={copyEmail}
-                className="w-full sm:w-auto justify-center px-6 py-3.5 sm:py-4 bg-[#16181e] text-white border border-[#2a2c33] hover:border-[#0055ff] transition-all text-xs font-mono uppercase tracking-wider flex items-center gap-2 cursor-pointer"
+                onClick={onOpenContact}
+                className="px-6 py-3.5 bg-white text-black hover:bg-[#0055ff] hover:text-white transition-all text-xs font-mono uppercase tracking-wider font-semibold border border-white cursor-pointer shadow-md"
               >
-                {copied ? (
-                  <>
-                    <Check className="w-4 h-4 text-[#22c55e] shrink-0" />
-                    <span className="text-[#22c55e]">EMAIL COPIED</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4 text-[#9ca3af] shrink-0" />
-                    <ScrambleText text="COPY DIRECT EMAIL" speed={20} duration={350} />
-                  </>
-                )}
+                CONNECT NOW
               </button>
 
-              {onOpenContact && (
-                <button
-                  onClick={onOpenContact}
-                  className="w-full sm:w-auto justify-center px-6 py-3.5 sm:py-4 bg-transparent text-white border border-[#2a2c33] hover:border-white transition-all text-xs font-mono uppercase tracking-wider flex items-center gap-2 cursor-pointer"
-                >
-                  <ScrambleText text="SEND INQUIRY" speed={20} duration={350} />
-                </button>
-              )}
+              <a
+                href={`mailto:${email}`}
+                className="px-6 py-3.5 bg-[#0055ff] text-white hover:bg-[#0044cc] transition-all text-xs font-mono uppercase tracking-wider font-semibold border border-[#0055ff] flex items-center gap-2 shadow-md"
+              >
+                <Mail className="w-4 h-4 shrink-0" />
+                <span>EMAIL</span>
+              </a>
+
+              <a
+                href={resumeLink}
+                download="Ashmin_Ashraf_Resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="px-5 py-3.5 bg-[#16181e] text-white hover:bg-white hover:text-black transition-all text-xs font-mono uppercase tracking-wider font-semibold border border-[#2a2c33] flex items-center gap-2"
+              >
+                <Download className="w-4 h-4 text-[#0055ff] shrink-0" />
+                <span>RESUME (PDF)</span>
+              </a>
             </div>
 
-            {/* Direct Email & Location Display */}
-            <div className="text-xs font-mono text-[#9ca3af] pt-2 space-y-1">
-              <div className="break-all sm:break-normal">
-                DIRECT INBOX: <a href={`mailto:${email}`} className="text-white hover:text-[#0055ff] underline ml-1">{email}</a>
+            {/* Direct Email Line */}
+            <div className="pt-4 border-t border-[#1f2229] flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#9ca3af] gap-2">
+              <div className="flex items-center gap-1.5">
+                <span>EMAIL:</span>
+                <a
+                  href={`mailto:${email}`}
+                  className="text-white hover:text-[#0055ff] underline font-medium"
+                >
+                  {email}
+                </a>
               </div>
-              <div className="text-[#6b7280]">
-                LOCATION: <span className="text-white">KOZHIKODE, KERALA</span> • REMOTE GLOBAL
+
+              <div>
+                <span>LOCATION: </span>
+                <span className="text-white">REMOTE &amp; RELOCATION</span>
               </div>
             </div>
 

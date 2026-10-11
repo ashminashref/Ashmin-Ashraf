@@ -26,7 +26,7 @@ export default function Methodology() {
       icon: Terminal,
       phase: 'PHASE: ENGINEERING',
       desc: 'Writing clean, declarative React 19 interfaces paired with robust Node/Python endpoints and typed PostgreSQL schemas. Crafting buttery GSAP micro-animations that feel physical and tactile.',
-      deliverables: ['TypeScript Components', 'REST/GraphQL API Endpoints', 'GSAP Scroll & Hover Physics'],
+      deliverables: ['React & JavaScript Components', 'REST/GraphQL API Endpoints', 'GSAP Scroll & Hover Physics'],
     },
     {
       num: '04',

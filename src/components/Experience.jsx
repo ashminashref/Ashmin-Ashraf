@@ -7,68 +7,82 @@ export default function Experience() {
 
   const history = [
     {
-      period: '2025 — PRESENT',
-      role: 'Freelance Designer & Web Developer',
-      entity: 'Client Projects & Independent Works',
-      location: 'Kozhikode, Kerala • Remote',
+      period: '05/2025 — 01/2026',
+      role: 'Python Full Stack Developer Intern',
+      entity: 'Techolas Technologies',
+      location: 'Calicut, Kerala',
       summary:
-        'Continuing freelance design and web development work—crafting user experiences in Figma and building responsive web applications with modern frontend and Python backend workflows.',
+        'Developed dynamic web applications, built RESTful backend APIs with Django, and created responsive user interfaces with React.js.',
       highlights: [
-        'Delivering end-to-end design and web development solutions for client projects.',
-        'Bridging Figma design prototypes into clean, responsive web code with TailwindCSS and GSAP.',
-        'Leveraging modern AI developer tools to accelerate prototyping, code quality, and delivery.',
+        'Built & integrated RESTful APIs using Django to connect frontend applications with backend services.',
+        'Developed responsive web applications using React.js, JavaScript, React-Bootstrap, and CSS.',
+        'Utilized React Router for application navigation and managed component state efficiently with React Hooks.',
       ],
-      stack: ['Figma', 'React', 'TailwindCSS', 'Python', 'AI Tools', 'GSAP'],
+      stack: ['Python', 'Django', 'React.js', 'REST APIs', 'MySQL', 'React Router'],
     },
     {
-      period: '2025',
-      role: 'Python Full-Stack Development Course',
-      entity: 'Full-Stack Specialization Coursework',
-      location: 'Kerala, India',
+      period: '2024 — Present',
+      role: 'Freelance Full Stack Developer & UI Designer',
+      entity: 'Independent Practice / Client Projects',
+      location: 'Remote',
       summary:
-        'Completed comprehensive training in Python full-stack development, mastering backend logic, RESTful APIs, database modeling, and end-to-end web architecture.',
+        'Designing and engineering custom web applications, responsive client platforms, and digital products using Python, Django, React.js, and Figma.',
       highlights: [
-        'Built server-side architectures, API endpoints, and database models using Python.',
-        'Integrated modern frontend interfaces with backend databases and services.',
-        'Mastered git workflows, clean code architecture, and deployment pipelines.',
+        'Built full stack client solutions including Dotbey Media, community PWAs, and custom landing experiences.',
+        'Engineered responsive web applications with React.js, modern CSS, and integrated REST APIs.',
+        'Collaborated directly with clients to deliver complete Figma UI/UX prototypes and clean, maintainable codebases.',
       ],
-      stack: ['Python', 'Django / FastAPI', 'PostgreSQL', 'REST APIs', 'Git'],
+      stack: ['Python', 'Django', 'React.js', 'Figma', 'MySQL', 'JavaScript', 'REST APIs'],
     },
     {
       period: '2022 — 2025',
-      role: 'BCA Degree & Freelance Design / Web Projects',
-      entity: 'BCA University Studies & Freelance Practice',
-      location: 'Kozhikode, Kerala',
+      role: 'Bachelor of Computer Applications (BCA)',
+      entity: 'University of Calicut',
+      location: 'Kerala, India',
       summary:
-        'Completed Bachelor of Computer Applications (BCA) degree while actively designing and developing freelance web projects and UI/UX assets for clients.',
+        'Completed Bachelor of Computer Applications degree, building core foundations in computer science, database design, and software engineering.',
       highlights: [
-        'Earned BCA degree building solid foundations in computer science and programming.',
-        'Self-taught modern UI/UX design in Figma and executed freelance client projects in parallel.',
-        'Delivered brand identities, responsive web layouts, and interactive digital interfaces.',
+        'Formed strong foundations in relational database management (MySQL), algorithms, and object-oriented programming.',
+        'Developed end-to-end projects including e-voting systems (Votte Digital) and interactive campus tools.',
+        'Bridged technical backend architecture with clean, intuitive user interface design.',
       ],
-      stack: ['BCA Degree', 'Figma', 'UI/UX Design', 'JavaScript', 'React', 'HTML5/CSS3'],
+      stack: ['BCA Degree', 'Python', 'MySQL', 'Data Structures', 'Web Development'],
+    },
+    {
+      period: '2025',
+      role: 'Python Full Stack Certification',
+      entity: 'Microsoft x DSCI | NCTT',
+      location: 'National Council for Tech',
+      summary:
+        'Completed intensive course curriculum in Python full stack web engineering, covering Django backends, REST APIs, and modern frontend tools.',
+      highlights: [
+        'Trained in building end-to-end web apps with Django, database integration, and API architecture.',
+        'Mastered component-driven frontend patterns, responsive UI design, and Git version control.',
+        'Awarded official course completion certification in Python Full Stack Development.',
+      ],
+      stack: ['Python', 'Django', 'REST APIs', 'React.js', 'MySQL', 'Git'],
     },
   ];
 
   return (
-    <section id="experience" className="py-14 sm:py-20 border-b border-[#e5e7eb] bg-white">
+    <section id="experience" className="py-12 sm:py-16 border-b border-[#e5e7eb] bg-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 pb-5 sm:pb-6 border-b border-[#e5e7eb] gap-4 sm:gap-6">
-          <div className="space-y-2 sm:space-y-3">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-5 border-b border-[#e5e7eb] gap-4">
+          <div className="space-y-2">
             <div className="text-xs font-mono text-[#6b7280] uppercase tracking-wider flex items-center gap-2">
               <span className="w-2 h-2 bg-[#0055ff] inline-block"></span>
-              <span>CAREER CHRONOLOGY</span>
+              <span>PROFESSIONAL BACKGROUND</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-normal tracking-tight text-[#121316]">
-              The Journey.{' '}
-              <span className="block text-[#0055ff] font-medium">Experience & Milestones</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-sans font-normal tracking-tight text-[#121316]">
+              Experience &amp; Education.{' '}
+              <span className="block text-[#0055ff] font-medium">Internship, Freelance &amp; Education</span>
             </h2>
           </div>
 
           <p className="max-w-md text-xs sm:text-sm text-[#4b5563] font-light leading-relaxed">
-            From self-taught curiosity in Kozhikode to building full-scale design systems and production web applications.
+            Practical experience in Python full stack development, freelance client delivery, and computer science education.
           </p>
         </div>
 

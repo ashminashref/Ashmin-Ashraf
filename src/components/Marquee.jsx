@@ -2,15 +2,14 @@ import React from 'react';
 
 export default function Marquee({
   items = [
-    'PRODUCT DESIGN',
-    'PYTHON FULL-STACK',
-    'GSAP MICRO-INTERACTIONS',
-    'AI DEVELOPER TOOLS',
-    'SYSTEM TOKENS',
-    'REACT 19 & NEXT.JS',
+    'PYTHON & DJANGO',
+    'REACT.JS APPS',
     'RESTFUL APIS',
-    'SUB-SECOND TTFB',
-    'SELF-TAUGHT CRAFT',
+    'MYSQL DATABASES',
+    'UI/UX DESIGN CRAFT',
+    'CLEAN CODE ARCHITECTURE',
+    'GEMINI AI INTEGRATION',
+    'TAILWIND & BOOTSTRAP',
   ],
   dark = false,
 }) {

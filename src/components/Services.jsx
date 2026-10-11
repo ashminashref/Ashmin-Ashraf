@@ -31,7 +31,7 @@ export default function Services({ onOpenContact }) {
       summary: 'A unified atomic design system bridging Figma directly into a tree-shakable React component library with micro-interactions.',
       features: [
         'Complete Figma token architecture (Colors, Typography, Spacing, Elevation)',
-        '60+ production React components coded in TypeScript',
+        '60+ production React components coded in modern JavaScript',
         'GSAP micro-interaction library & smooth page transitions',
         'Full Storybook documentation & interactive playground',
         'WCAG 2.2 AAA accessibility compliance across all components',

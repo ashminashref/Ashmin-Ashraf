@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import ScrambleText from './ScrambleText';
-import { ArrowUpRight, Menu, X, MapPin } from 'lucide-react';
+import { ArrowUpRight, Menu, X, FileText, Download } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './Icons';
 
 export default function Navbar({ onOpenContact }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const calLink = 'https://cal.com/ashmin-ashraf/schedule-meeting?user=ashmin-ashraf';
+  const githubLink = 'https://github.com/ashminashref/';
+  const linkedinLink = 'https://www.linkedin.com/in/ashmin-ashraf/';
+  const resumeLink = '/resume.pdf';
+  const emailLink = 'mailto:ashminashraf07@gmail.com';
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      const sections = ['home', 'about', 'projects', 'skills', 'services', 'testimonials', 'faq', 'experience', 'contact'];
+      const sections = ['home', 'about', 'projects', 'skills', 'experience', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const section of sections) {
@@ -36,9 +40,8 @@ export default function Navbar({ onOpenContact }) {
     { id: 'about', label: 'About' },
     { id: 'projects', label: 'Projects' },
     { id: 'skills', label: 'Skills' },
-    { id: 'services', label: 'Services' },
-    { id: 'faq', label: 'FAQ' },
-    { id: 'experience', label: 'Journey' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   const scrollTo = (id) => {
@@ -59,44 +62,49 @@ export default function Navbar({ onOpenContact }) {
     >
       <div className="max-w-[1280px] mx-auto px-3.5 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
-        {/* Brand / Logo */}
+        {/* Brand: Logo + Name ("ASH") & Portfolio */}
         <a
           href="#home"
           onClick={(e) => {
             e.preventDefault();
             scrollTo('home');
           }}
-          className="flex items-center gap-2 sm:gap-3 group min-w-0"
+          className="flex items-center gap-2.5 group min-w-0 cursor-pointer"
         >
-          {/* Stylized Crosshair Emblem from Aeye */}
-          <div className="relative w-8 h-8 shrink-0 flex items-center justify-center bg-black text-white group-hover:bg-[#0055ff] transition-colors">
+          {/* Modern Geometric Logo Mark */}
+          <div className="w-8 h-8 bg-black text-white flex items-center justify-center border border-black group-hover:bg-[#0055ff] group-hover:border-[#0055ff] transition-all relative shrink-0 shadow-xs">
             <svg
+              className="w-4.5 h-4.5 text-white"
               viewBox="0 0 24 24"
-              className="w-4 h-4 fill-current"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M11 2h2v7h7v2h-7v7h-2v-7H4v-2h7V2z" />
-              <circle cx="12" cy="12" r="1.5" fill="#0055ff" className="group-hover:fill-white" />
+              <path
+                d="M12 3.5L4.5 19.5H8.5L10.5 15H13.5L15.5 19.5H19.5L12 3.5Z"
+                fill="currentColor"
+              />
+              <path
+                d="M11.2 12.5L12 9.5L12.8 12.5H11.2Z"
+                fill="#121316"
+                className="group-hover:fill-[#0055ff] transition-colors"
+              />
+              <rect x="18" y="3.5" width="2.5" height="2.5" fill="#0055ff" className="group-hover:fill-white transition-colors" />
             </svg>
           </div>
 
-          <div className="flex flex-col min-w-0">
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-black uppercase truncate">
-                ASHMIN ASHRAF
-              </span>
-              <span className="hidden sm:inline text-[10px] font-mono px-1.5 py-0.2 bg-[#f3f4f6] text-[#4b5563] border border-[#e5e7eb]">
-                PORTFOLIO
-              </span>
-            </div>
-            <span className="text-[9px] sm:text-[10px] font-mono text-[#6b7280] tracking-tight truncate">
-              DESIGNER • FULL-STACK DEVELOPER
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-sm sm:text-base font-bold tracking-tight text-black uppercase group-hover:text-[#0055ff] transition-colors">
+              ASH
+            </span>
+            <span className="text-[#9ca3af] font-mono text-xs">/</span>
+            <span className="text-xs font-mono text-[#6b7280] uppercase tracking-wider">
+              PORTFOLIO
             </span>
           </div>
         </a>
 
         {/* Center Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1 border border-[#e5e7eb] bg-[#fafafa] p-1">
+        <nav className="hidden lg:flex items-center space-x-1 border border-[#e5e7eb] bg-[#fafafa] p-1">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -117,26 +125,66 @@ export default function Navbar({ onOpenContact }) {
           })}
         </nav>
 
-        {/* Right Action: Let's Connect Button via Cal.com & Location */}
-        <div className="hidden sm:flex items-center gap-3">
-          <div className="hidden lg:flex items-center gap-1.5 text-[11px] font-mono text-[#6b7280]">
-            <MapPin className="w-3 h-3 text-[#0055ff]" />
-            <span>KOZHIKODE, KERALA</span>
+        {/* Right Action Area: Social Links + Resume + Connect Now */}
+        <div className="hidden sm:flex items-center gap-2 sm:gap-2.5">
+          {/* Direct Social Links: GitHub & LinkedIn */}
+          <div className="flex items-center gap-1 border border-[#e5e7eb] bg-[#fafafa] p-1">
+            <a
+              href={githubLink}
+              target="_blank"
+              rel="noreferrer"
+              className="p-1.5 text-[#4b5563] hover:text-black hover:bg-white border border-transparent hover:border-[#e5e7eb] transition-all"
+              title="GitHub Profile"
+              aria-label="GitHub Profile"
+            >
+              <GithubIcon className="w-4 h-4" />
+            </a>
+            <a
+              href={linkedinLink}
+              target="_blank"
+              rel="noreferrer"
+              className="p-1.5 text-[#4b5563] hover:text-[#0055ff] hover:bg-white border border-transparent hover:border-[#e5e7eb] transition-all"
+              title="LinkedIn Profile"
+              aria-label="LinkedIn Profile"
+            >
+              <LinkedinIcon className="w-4 h-4" />
+            </a>
           </div>
 
+          {/* Resume Button */}
           <a
-            href={calLink}
+            href={resumeLink}
+            download="Ashmin_Ashraf_Resume.pdf"
             target="_blank"
             rel="noreferrer"
-            className="group relative overflow-hidden flex items-center gap-2 px-4 py-2 text-xs font-mono uppercase tracking-wider font-semibold border border-black bg-black text-white hover:bg-[#0055ff] hover:border-[#0055ff] transition-all"
+            className="group flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono uppercase tracking-wider font-semibold border border-[#e5e7eb] bg-[#fafafa] hover:bg-white hover:border-black text-[#121316] transition-all"
           >
-            <ScrambleText text="LET'S CONNECT" speed={25} duration={400} />
-            <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <Download className="w-3.5 h-3.5 text-[#0055ff]" />
+            <span>RESUME</span>
           </a>
+
+          {/* Connect Now Button */}
+          <button
+            onClick={onOpenContact}
+            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider font-semibold bg-black text-white hover:bg-[#0055ff] transition-all cursor-pointer shadow-xs"
+          >
+            <span>CONNECT NOW</span>
+          </button>
         </div>
 
         {/* Mobile Hamburger Toggle */}
-        <div className="flex md:hidden items-center gap-2">
+        <div className="flex lg:hidden items-center gap-2">
+          <a
+            href={resumeLink}
+            download="Ashmin_Ashraf_Resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="sm:hidden px-2.5 py-1.5 text-[10px] font-mono uppercase tracking-wider font-semibold bg-black text-white hover:bg-[#0055ff] transition-colors flex items-center gap-1"
+          >
+            <FileText className="w-3 h-3" />
+            <span>RESUME</span>
+          </a>
+
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 border border-black text-black hover:bg-[#f3f4f6] cursor-pointer"
@@ -149,18 +197,35 @@ export default function Navbar({ onOpenContact }) {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[#e5e7eb] bg-white px-4 py-4 space-y-2 animate-in fade-in slide-in-from-top-2 duration-150">
-          <div className="flex items-center justify-between pb-3 border-b border-[#f3f4f6] text-xs font-mono text-[#6b7280]">
-            <span>LOCATION</span>
-            <span className="text-black font-semibold">KOZHIKODE, KERALA</span>
+        <div className="lg:hidden border-t border-[#e5e7eb] bg-white px-4 py-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-150 shadow-xl">
+          <div className="grid grid-cols-2 gap-2 pb-2 border-b border-[#f3f4f6]">
+            <a
+              href={githubLink}
+              target="_blank"
+              rel="noreferrer"
+              className="py-2 px-3 border border-[#e5e7eb] bg-[#f9f9fb] text-[#121316] text-xs font-mono flex items-center justify-center gap-2 hover:border-black"
+            >
+              <GithubIcon className="w-4 h-4" />
+              <span>GITHUB</span>
+            </a>
+            <a
+              href={linkedinLink}
+              target="_blank"
+              rel="noreferrer"
+              className="py-2 px-3 border border-[#e5e7eb] bg-[#f9f9fb] text-[#121316] text-xs font-mono flex items-center justify-center gap-2 hover:border-[#0055ff] hover:text-[#0055ff]"
+            >
+              <LinkedinIcon className="w-4 h-4 text-[#0055ff]" />
+              <span>LINKEDIN</span>
+            </a>
           </div>
+
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <button
                 key={link.id}
                 onClick={() => scrollTo(link.id)}
-                className={`w-full text-left px-3 py-2.5 text-xs font-mono uppercase tracking-wider flex items-center justify-between cursor-pointer transition-colors ${
+                className={`w-full text-left px-3 py-2 text-xs font-mono uppercase tracking-wider flex items-center justify-between cursor-pointer transition-colors ${
                   isActive
                     ? 'bg-black text-white font-semibold'
                     : 'text-[#1a1a1a] hover:bg-[#f3f4f6]'
@@ -171,28 +236,37 @@ export default function Navbar({ onOpenContact }) {
               </button>
             );
           })}
+
           <div className="pt-2 grid grid-cols-1 gap-2">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenContact();
+              }}
+              className="w-full py-2.5 bg-black text-white text-xs font-mono uppercase tracking-wider font-semibold flex items-center justify-center gap-2 hover:bg-[#0055ff] transition-colors cursor-pointer"
+            >
+              <span>CONNECT NOW</span>
+            </button>
+
             <a
-              href={calLink}
+              href={emailLink}
+              className="w-full py-2.5 border border-[#d1d5db] bg-[#fafafa] text-[#121316] text-xs font-mono uppercase tracking-wider font-semibold flex items-center justify-center gap-2 hover:bg-white hover:border-black transition-colors"
+            >
+              <span>EMAIL</span>
+              <ArrowUpRight className="w-4 h-4 text-[#0055ff]" />
+            </a>
+
+            <a
+              href={resumeLink}
+              download="Ashmin_Ashraf_Resume.pdf"
               target="_blank"
               rel="noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3 bg-[#0055ff] text-white text-xs font-mono uppercase tracking-wider font-semibold flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors"
+              className="w-full py-2.5 border border-[#e5e7eb] text-[#4b5563] text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 hover:text-black transition-colors"
             >
-              <span>SCHEDULE CALL (CAL.COM)</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <Download className="w-3.5 h-3.5" />
+              <span>DOWNLOAD RESUME (PDF)</span>
             </a>
-            {onOpenContact && (
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenContact();
-                }}
-                className="w-full py-2.5 border border-black bg-white text-black text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#f3f4f6] transition-colors cursor-pointer"
-              >
-                <span>SEND DIRECT INQUIRY</span>
-              </button>
-            )}
           </div>
         </div>
       )}
