@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
-import ScrambleText from './ScrambleText';
+import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
-import { X, Check, Send, Mail } from 'lucide-react';
+import { ME } from '../data/portfolioData';
 
 export default function ContactModal({ isOpen, onClose }) {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
-  const email = 'ashminashraf07@gmail.com';
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    role: 'Full-Time Python Developer',
+    projectType: 'Full-Stack Web Development',
     message: '',
   });
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -21,167 +28,167 @@ export default function ContactModal({ isOpen, onClose }) {
     e.preventDefault();
     setFormSubmitted(true);
     confetti({
-      particleCount: 60,
-      spread: 50,
+      particleCount: 50,
+      spread: 60,
       origin: { y: 0.6 },
-      colors: ['#0055ff', '#121316', '#22c55e', '#ffffff'],
+      colors: ['#9fe3b4', '#ffffff', '#4aa3e0', '#9a82f0'],
     });
+
+    const subject = encodeURIComponent(`Inquiry from ${formData.name} [${formData.projectType}]`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:${ME.email}?subject=${subject}&body=${body}`;
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText(email);
+    navigator.clipboard.writeText(ME.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-      <div className="bg-white border border-black max-w-lg w-full my-4 max-h-[94vh] overflow-y-auto shadow-2xl relative animate-in fade-in zoom-in-95 duration-150">
-        
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-modal-title"
+    >
+      <div
+        className="relative w-full max-w-lg rounded-3xl border border-[var(--line)] bg-[var(--bg)] p-6 md:p-8 shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close Button */}
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute top-5 right-5 w-8 h-8 rounded-full border border-[var(--line)] bg-[var(--glass)] hover:bg-[var(--glass-hover)] flex items-center justify-center text-[var(--ink)] transition-colors cursor-pointer"
+          aria-label="Close dialog"
+        >
+          ✕
+        </button>
+
         {/* Modal Header */}
-        <div className="border-b border-[#e5e7eb] p-4 bg-[#fafafa] flex items-center justify-between sticky top-0 z-10">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-[#0055ff]" />
-            <span className="font-mono text-xs uppercase font-bold tracking-wider text-black">
-              CONNECT &amp; INQUIRY
-            </span>
-          </div>
-          <button
-            onClick={onClose}
-            className="p-1 hover:bg-[#e5e7eb] border border-[#d1d5db] transition-colors cursor-pointer"
-            aria-label="Close dialog"
+        <div className="mb-5">
+          <span className="pill text-[10px] py-0.5 px-2.5 mb-2">
+            Let's Collaborate
+          </span>
+          <h3
+            id="contact-modal-title"
+            className="text-2xl font-medium text-[var(--ink)] tracking-tight"
           >
-            <X className="w-4 h-4" />
-          </button>
+            Start a project with <em className="text-[var(--accent)] font-serif not-italic">Ashmin</em>
+          </h3>
+          <p className="mt-1 text-xs text-[var(--mute)]">
+            Open for full-time engineering roles, freelance builds, and design partnerships.
+          </p>
         </div>
 
-        {/* Modal Body */}
-        <div className="p-5 sm:p-6">
-          {formSubmitted ? (
-            <div className="py-8 text-center space-y-4">
-              <div className="w-12 h-12 bg-[#f0fdf4] border border-[#86efac] text-[#16a34a] mx-auto flex items-center justify-center">
-                <Check className="w-6 h-6" />
-              </div>
-              <div className="space-y-1">
-                <h3 className="text-xl font-sans font-semibold text-[#121316]">
-                  Message Received
-                </h3>
-                <p className="text-xs text-[#4b5563] max-w-sm mx-auto font-light leading-relaxed">
-                  Thank you for reaching out. I will respond to your message promptly.
-                </p>
-              </div>
+        {formSubmitted ? (
+          <div className="py-8 text-center flex flex-col items-center gap-3">
+            <div className="w-12 h-12 rounded-full border border-[var(--accent-border)] bg-[var(--accent-faint)] text-[var(--accent)] flex items-center justify-center text-xl">
+              ✓
+            </div>
+            <h4 className="text-lg font-medium text-[var(--ink)]">Opening Mail Client</h4>
+            <p className="text-xs text-[var(--mute)] max-w-[280px]">
+              Thank you! Your email client has been launched with your drafted message.
+            </p>
+            <button
+              type="button"
+              onClick={onClose}
+              className="pill on mt-3 text-xs py-2 px-5"
+            >
+              Back to Portfolio
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
+            <div>
+              <label className="block text-[11px] font-mono text-[var(--mute)] mb-1">
+                Your Name
+              </label>
+              <input
+                type="text"
+                required
+                placeholder="Jane Doe"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="w-full bg-[var(--field-bg)] border border-[var(--line)] rounded-xl px-3.5 py-2 text-xs text-[var(--ink)] placeholder-[var(--faint)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-mono text-[var(--mute)] mb-1">
+                Email Address
+              </label>
+              <input
+                type="email"
+                required
+                placeholder="jane@company.com"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="w-full bg-[var(--field-bg)] border border-[var(--line)] rounded-xl px-3.5 py-2 text-xs text-[var(--ink)] placeholder-[var(--faint)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-mono text-[var(--mute)] mb-1">
+                Focus Area
+              </label>
+              <select
+                value={formData.projectType}
+                onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                className="w-full bg-[var(--bg)] border border-[var(--line)] rounded-xl px-3.5 py-2 text-xs text-[var(--ink)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+              >
+                <option value="Full-Stack Web Development">Full-Stack Web Development (Python / Django / React)</option>
+                <option value="Frontend Development">Frontend Interface &amp; GSAP Motion</option>
+                <option value="UI/UX & Brand Design">UI/UX Prototype &amp; Brand Identity</option>
+                <option value="Full-Time Employment">Full-Time Software Engineer Role</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-mono text-[var(--mute)] mb-1">
+                Message / Brief
+              </label>
+              <textarea
+                rows="3"
+                required
+                placeholder="Tell me a bit about what you have in mind..."
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="w-full bg-[var(--field-bg)] border border-[var(--line)] rounded-xl px-3.5 py-2 text-xs text-[var(--ink)] placeholder-[var(--faint)] focus:outline-none focus:border-[var(--accent)] resize-none transition-colors"
+              />
+            </div>
+
+            <div className="flex items-center gap-3 mt-2">
+              <button
+                type="submit"
+                className="pill on text-xs py-2 px-5 flex items-center gap-2"
+              >
+                <span>Send Message</span>
+                <span>→</span>
+              </button>
 
               <button
-                onClick={() => {
-                  setFormSubmitted(false);
-                  onClose();
-                }}
-                className="px-6 py-2.5 bg-black text-white text-xs font-mono uppercase tracking-wider hover:bg-[#0055ff] transition-colors cursor-pointer"
+                type="button"
+                onClick={copyEmail}
+                className="pill text-xs py-2 px-3 text-[var(--ink)]"
               >
-                RETURN TO PORTFOLIO
+                {copied ? '✓ Email Copied' : '📋 Copy Email'}
               </button>
+
+              <a
+                href={ME.resumeUrl}
+                download
+                className="pill text-xs py-2 px-3 ml-auto text-[var(--ink)]"
+              >
+                📄 Resume
+              </a>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Direct Email Shortcut */}
-              <div className="p-3 bg-[#f0f4ff] border border-[#d6e4ff] flex items-center justify-between text-xs font-mono">
-                <span className="text-[#0055ff] font-medium">Direct Email:</span>
-                <a
-                  href={`mailto:${email}`}
-                  className="px-3 py-1 bg-[#0055ff] text-white hover:bg-blue-700 font-semibold flex items-center gap-1 transition-colors"
-                >
-                  <Mail className="w-3.5 h-3.5" />
-                  <span>EMAIL</span>
-                </a>
-              </div>
-
-              {/* Form Inputs */}
-              <div className="space-y-3 text-xs font-mono">
-                <div>
-                  <label className="block text-[#4b5563] uppercase mb-1">
-                    Your Name / Company *
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Alex Rivera"
-                    className="w-full p-2.5 text-xs border border-[#d1d5db] bg-[#fafafa] focus:bg-white focus:border-[#0055ff] focus:outline-hidden"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[#4b5563] uppercase mb-1">
-                    Your Email *
-                  </label>
-                  <input
-                    required
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="name@company.com"
-                    className="w-full p-2.5 text-xs border border-[#d1d5db] bg-[#fafafa] focus:bg-white focus:border-[#0055ff] focus:outline-hidden"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[#4b5563] uppercase mb-1">
-                    Role / Subject
-                  </label>
-                  <select
-                    value={formData.role}
-                    onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                    className="w-full p-2.5 text-xs border border-[#d1d5db] bg-[#fafafa] focus:bg-white focus:border-[#0055ff] focus:outline-hidden"
-                  >
-                    <option>Full-Time: Python Full Stack Developer</option>
-                    <option>Full-Time: Frontend Developer</option>
-                    <option>Full-Time: UI/UX Designer</option>
-                    <option>Web Application Project</option>
-                    <option>Other Collaboration</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-[#4b5563] uppercase mb-1">
-                    Message *
-                  </label>
-                  <textarea
-                    required
-                    rows={3}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="How can we collaborate?"
-                    className="w-full p-2.5 text-xs border border-[#d1d5db] bg-[#fafafa] focus:bg-white focus:border-[#0055ff] focus:outline-hidden resize-none"
-                  />
-                </div>
-              </div>
-
-              {/* Submit Buttons */}
-              <div className="pt-2 flex items-center justify-between gap-3">
-                <button
-                  type="button"
-                  onClick={copyEmail}
-                  className="text-xs font-mono text-[#6b7280] hover:text-black cursor-pointer py-1"
-                >
-                  {copied ? (
-                    <span className="text-[#22c55e]">✓ {email} copied!</span>
-                  ) : (
-                    <span>Copy email</span>
-                  )}
-                </button>
-
-                <button
-                  type="submit"
-                  className="px-6 py-2.5 bg-black text-white hover:bg-[#0055ff] transition-colors text-xs font-mono uppercase tracking-wider font-semibold flex items-center gap-1.5 cursor-pointer shadow-xs"
-                >
-                  <span>CONNECT NOW</span>
-                  <Send className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </form>
-          )}
-        </div>
+          </form>
+        )}
       </div>
     </div>
   );

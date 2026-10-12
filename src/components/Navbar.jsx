@@ -1,272 +1,273 @@
-import React, { useState, useEffect } from 'react';
-import ScrambleText from './ScrambleText';
-import { ArrowUpRight, Menu, X, FileText, Download } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './Icons';
+import React, { useState } from 'react';
+import { ME } from '../data/portfolioData';
 
-export default function Navbar({ onOpenContact }) {
-  const [scrolled, setScrolled] = useState(false);
+export default function Navbar({
+  currentPage = 'home',
+  activeSection = 'home',
+  theme = 'dark',
+  onToggleTheme,
+  onNavigate,
+  onOpenContact,
+}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const githubLink = 'https://github.com/ashminashref/';
-  const linkedinLink = 'https://www.linkedin.com/in/ashmin-ashraf/';
-  const resumeLink = '/resume.pdf';
-  const emailLink = 'mailto:ashminashraf07@gmail.com';
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-      const sections = ['home', 'about', 'projects', 'skills', 'experience', 'contact'];
-      const scrollPos = window.scrollY + 200;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'contact', label: 'Contact' },
-  ];
-
-  const scrollTo = (id) => {
+  const handleNavClick = (page, sectionId = null) => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (onNavigate) {
+      onNavigate(page, sectionId);
     }
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md border-[#e5e7eb] shadow-xs'
-          : 'bg-white border-[#e5e7eb]'
-      }`}
-    >
-      <div className="max-w-[1280px] mx-auto px-3.5 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        
-        {/* Brand: Logo + Name ("ASH") & Portfolio */}
-        <a
-          href="#home"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollTo('home');
-          }}
-          className="flex items-center gap-2.5 group min-w-0 cursor-pointer"
-        >
-          {/* Modern Geometric Logo Mark */}
-          <div className="w-8 h-8 bg-black text-white flex items-center justify-center border border-black group-hover:bg-[#0055ff] group-hover:border-[#0055ff] transition-all relative shrink-0 shadow-xs">
-            <svg
-              className="w-4.5 h-4.5 text-white"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 3.5L4.5 19.5H8.5L10.5 15H13.5L15.5 19.5H19.5L12 3.5Z"
-                fill="currentColor"
-              />
-              <path
-                d="M11.2 12.5L12 9.5L12.8 12.5H11.2Z"
-                fill="#121316"
-                className="group-hover:fill-[#0055ff] transition-colors"
-              />
-              <rect x="18" y="3.5" width="2.5" height="2.5" fill="#0055ff" className="group-hover:fill-white transition-colors" />
-            </svg>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-sm sm:text-base font-bold tracking-tight text-black uppercase group-hover:text-[#0055ff] transition-colors">
-              ASH
-            </span>
-            <span className="text-[#9ca3af] font-mono text-xs">/</span>
-            <span className="text-xs font-mono text-[#6b7280] uppercase tracking-wider">
-              PORTFOLIO
-            </span>
-          </div>
-        </a>
-
-        {/* Center Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-1 border border-[#e5e7eb] bg-[#fafafa] p-1">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
-            return (
-              <button
-                key={link.id}
-                onClick={() => scrollTo(link.id)}
-                className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider transition-all flex items-center gap-1 cursor-pointer ${
-                  isActive
-                    ? 'bg-black text-white'
-                    : 'text-[#4b5563] hover:text-black hover:bg-white'
-                }`}
-              >
-                {isActive && <span className="text-[#0055ff]">&lt;</span>}
-                <ScrambleText text={link.label} speed={25} duration={350} />
-                {isActive && <span className="text-[#0055ff]">&gt;</span>}
-              </button>
-            );
-          })}
-        </nav>
-
-        {/* Right Action Area: Social Links + Resume + Connect Now */}
-        <div className="hidden sm:flex items-center gap-2 sm:gap-2.5">
-          {/* Direct Social Links: GitHub & LinkedIn */}
-          <div className="flex items-center gap-1 border border-[#e5e7eb] bg-[#fafafa] p-1">
-            <a
-              href={githubLink}
-              target="_blank"
-              rel="noreferrer"
-              className="p-1.5 text-[#4b5563] hover:text-black hover:bg-white border border-transparent hover:border-[#e5e7eb] transition-all"
-              title="GitHub Profile"
-              aria-label="GitHub Profile"
-            >
-              <GithubIcon className="w-4 h-4" />
-            </a>
-            <a
-              href={linkedinLink}
-              target="_blank"
-              rel="noreferrer"
-              className="p-1.5 text-[#4b5563] hover:text-[#0055ff] hover:bg-white border border-transparent hover:border-[#e5e7eb] transition-all"
-              title="LinkedIn Profile"
-              aria-label="LinkedIn Profile"
-            >
-              <LinkedinIcon className="w-4 h-4" />
-            </a>
-          </div>
-
-          {/* Resume Button */}
-          <a
-            href={resumeLink}
-            download="Ashmin_Ashraf_Resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="group flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono uppercase tracking-wider font-semibold border border-[#e5e7eb] bg-[#fafafa] hover:bg-white hover:border-black text-[#121316] transition-all"
-          >
-            <Download className="w-3.5 h-3.5 text-[#0055ff]" />
-            <span>RESUME</span>
-          </a>
-
-          {/* Connect Now Button */}
+    <header className="fixed-nav-bar">
+      <div className="fixed-nav-inner">
+        {/* Left: Minimal Brand Logo */}
+        <div className="flex items-center">
           <button
-            onClick={onOpenContact}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider font-semibold bg-black text-white hover:bg-[#0055ff] transition-all cursor-pointer shadow-xs"
+            type="button"
+            className="logo flex items-baseline select-none focus:outline-none hover:opacity-80 transition-opacity"
+            onClick={() => handleNavClick('home', 'home')}
+            aria-label="Ashmin Home"
           >
-            <span>CONNECT NOW</span>
+            <span>ash</span>
+            <i className="ml-0.5">min</i>
           </button>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <div className="flex lg:hidden items-center gap-2">
-          <a
-            href={resumeLink}
-            download="Ashmin_Ashraf_Resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="sm:hidden px-2.5 py-1.5 text-[10px] font-mono uppercase tracking-wider font-semibold bg-black text-white hover:bg-[#0055ff] transition-colors flex items-center gap-1"
+        {/* Center: Minimal Navigation Links (Normal Case, Rounded Pill Hover, Simple Animation) */}
+        <nav
+          className="hidden md:flex items-center gap-1.5"
+          aria-label="Main Navigation"
+        >
+          {/* Home */}
+          <button
+            type="button"
+            className={`nav-link ${
+              currentPage === 'home' && activeSection === 'home' ? 'active' : ''
+            }`}
+            onClick={() => handleNavClick('home', 'home')}
           >
-            <FileText className="w-3 h-3" />
-            <span>RESUME</span>
+            Home
+          </button>
+
+          {/* Projects */}
+          <button
+            type="button"
+            className={`nav-link flex items-center gap-1.5 ${
+              currentPage === 'projects' ? 'active' : ''
+            }`}
+            onClick={() => handleNavClick('projects')}
+          >
+            <span>Projects</span>
+            <span className="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-[var(--accent-faint)] text-[var(--accent)] border border-[var(--accent-border)] leading-tight">
+              9+
+            </span>
+          </button>
+
+          {/* About (Clean & Minimal, only 'About') */}
+          <button
+            type="button"
+            className={`nav-link ${
+              currentPage === 'about' ? 'active' : ''
+            }`}
+            onClick={() => handleNavClick('about')}
+          >
+            About
+          </button>
+
+          {/* Quick Section Jumps on Home */}
+          {currentPage === 'home' && (
+            <>
+              <button
+                type="button"
+                className={`nav-link ${
+                  activeSection === 'skills' ? 'active' : ''
+                }`}
+                onClick={() => handleNavClick('home', 'skills')}
+              >
+                Skills
+              </button>
+
+              <button
+                type="button"
+                className={`nav-link ${
+                  activeSection === 'experience' ? 'active' : ''
+                }`}
+                onClick={() => handleNavClick('home', 'experience')}
+              >
+                Experience
+              </button>
+            </>
+          )}
+
+          {/* Contact */}
+          <button
+            type="button"
+            className={`nav-link ${
+              activeSection === 'contact' ? 'active' : ''
+            }`}
+            onClick={() => handleNavClick('home', 'contact')}
+          >
+            Contact
+          </button>
+        </nav>
+
+        {/* Right: Rounded Corner Buttons & Theme Toggle */}
+        <div className="flex items-center gap-2.5">
+          {/* Theme Toggle Button (Rounded Full) */}
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            className="w-8 h-8 rounded-full flex items-center justify-center border border-[var(--line)] bg-[var(--glass)] hover:border-[var(--accent-border)] hover:bg-[var(--glass-hover)] transition-all duration-200 cursor-pointer"
+            aria-label={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode`}
+            title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode`}
+          >
+            {theme === 'dark' ? (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e7c98a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            ) : (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0f8b44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            )}
+          </button>
+
+          {/* Download Resume (Rounded Corner Button) */}
+          <a
+            href={ME.resumeUrl}
+            download
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium border border-[var(--line)] bg-[var(--glass)] text-[var(--ink)] hover:border-[var(--accent-border)] hover:bg-[var(--glass-hover)] transition-all duration-200"
+            aria-label="Download resume PDF"
+          >
+            <span>Resume</span>
+            <span className="text-[10px] text-[var(--accent)]">↓</span>
           </a>
 
+          {/* Hire Me CTA (Rounded Corner Button) */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 border border-black text-black hover:bg-[#f3f4f6] cursor-pointer"
-            aria-label="Toggle Navigation Menu"
+            type="button"
+            onClick={onOpenContact}
+            className="px-4 py-1.5 rounded-full text-xs font-semibold bg-[var(--accent)] text-black hover:opacity-90 active:scale-95 transition-all duration-200 shadow-sm cursor-pointer"
+            aria-label="Open contact inquiry modal"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <span>Hire me →</span>
+          </button>
+
+          {/* Mobile Menu Hamburger */}
+          <button
+            type="button"
+            className="md:hidden w-8 h-8 rounded-full border border-[var(--line)] bg-[var(--glass)] flex items-center justify-center text-[var(--ink)] hover:bg-[var(--glass-hover)] transition-all duration-200 cursor-pointer"
+            aria-label="Toggle navigation menu"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {mobileMenuOpen ? (
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="7" x2="21" y2="7" />
+                  <line x1="3" y1="17" x2="21" y2="17" />
+                </>
+              )}
+            </svg>
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Drawer (Rounded Clean Design) */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-[#e5e7eb] bg-white px-4 py-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-150 shadow-xl">
-          <div className="grid grid-cols-2 gap-2 pb-2 border-b border-[#f3f4f6]">
-            <a
-              href={githubLink}
-              target="_blank"
-              rel="noreferrer"
-              className="py-2 px-3 border border-[#e5e7eb] bg-[#f9f9fb] text-[#121316] text-xs font-mono flex items-center justify-center gap-2 hover:border-black"
-            >
-              <GithubIcon className="w-4 h-4" />
-              <span>GITHUB</span>
-            </a>
-            <a
-              href={linkedinLink}
-              target="_blank"
-              rel="noreferrer"
-              className="py-2 px-3 border border-[#e5e7eb] bg-[#f9f9fb] text-[#121316] text-xs font-mono flex items-center justify-center gap-2 hover:border-[#0055ff] hover:text-[#0055ff]"
-            >
-              <LinkedinIcon className="w-4 h-4 text-[#0055ff]" />
-              <span>LINKEDIN</span>
-            </a>
+        <div className="md:hidden border-t border-[var(--line)] bg-[var(--bg)] px-4 py-4 flex flex-col gap-2 shadow-2xl animate-fadeIn">
+          <div className="flex items-center justify-between pb-2 border-b border-[var(--line)] text-xs text-[var(--faint)]">
+            <span>Navigation</span>
+            <span className="text-[var(--accent)] font-medium">Available</span>
           </div>
 
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
-            return (
-              <button
-                key={link.id}
-                onClick={() => scrollTo(link.id)}
-                className={`w-full text-left px-3 py-2 text-xs font-mono uppercase tracking-wider flex items-center justify-between cursor-pointer transition-colors ${
-                  isActive
-                    ? 'bg-black text-white font-semibold'
-                    : 'text-[#1a1a1a] hover:bg-[#f3f4f6]'
-                }`}
-              >
-                <span>{link.label}</span>
-                <span className={isActive ? 'text-white' : 'text-[#0055ff]'}>&gt;</span>
-              </button>
-            );
-          })}
-
-          <div className="pt-2 grid grid-cols-1 gap-2">
+          <div className="grid grid-cols-1 gap-1 pt-1">
             <button
+              type="button"
+              className={`nav-link w-full justify-between py-2 px-3 rounded-xl ${
+                currentPage === 'home' && activeSection === 'home' ? 'active' : ''
+              }`}
+              onClick={() => handleNavClick('home', 'home')}
+            >
+              <span>Home</span>
+              <span className="text-xs text-[var(--faint)]">01</span>
+            </button>
+
+            <button
+              type="button"
+              className={`nav-link w-full justify-between py-2 px-3 rounded-xl ${
+                currentPage === 'projects' ? 'active' : ''
+              }`}
+              onClick={() => handleNavClick('projects')}
+            >
+              <span>Projects (9+)</span>
+              <span className="text-xs text-[var(--accent)]">Work</span>
+            </button>
+
+            <button
+              type="button"
+              className={`nav-link w-full justify-between py-2 px-3 rounded-xl ${
+                currentPage === 'about' ? 'active' : ''
+              }`}
+              onClick={() => handleNavClick('about')}
+            >
+              <span>About</span>
+              <span className="text-xs text-[var(--faint)]">03</span>
+            </button>
+
+            <button
+              type="button"
+              className={`nav-link w-full justify-between py-2 px-3 rounded-xl ${
+                activeSection === 'contact' ? 'active' : ''
+              }`}
+              onClick={() => handleNavClick('home', 'contact')}
+            >
+              <span>Contact</span>
+              <span className="text-xs text-[var(--faint)]">04</span>
+            </button>
+          </div>
+
+          <div className="pt-3 border-t border-[var(--line)] grid grid-cols-2 gap-2 mt-1">
+            <a
+              href={ME.resumeUrl}
+              download
+              className="py-2 px-3 rounded-full border border-[var(--line)] bg-[var(--glass)] text-xs text-center font-medium text-[var(--ink)] hover:bg-[var(--glass-hover)] transition-all"
+            >
+              Resume (PDF)
+            </a>
+
+            <button
+              type="button"
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenContact();
               }}
-              className="w-full py-2.5 bg-black text-white text-xs font-mono uppercase tracking-wider font-semibold flex items-center justify-center gap-2 hover:bg-[#0055ff] transition-colors cursor-pointer"
+              className="py-2 px-3 rounded-full bg-[var(--accent)] text-black text-xs text-center font-semibold hover:opacity-90 transition-all"
             >
-              <span>CONNECT NOW</span>
+              Hire me →
             </button>
-
-            <a
-              href={emailLink}
-              className="w-full py-2.5 border border-[#d1d5db] bg-[#fafafa] text-[#121316] text-xs font-mono uppercase tracking-wider font-semibold flex items-center justify-center gap-2 hover:bg-white hover:border-black transition-colors"
-            >
-              <span>EMAIL</span>
-              <ArrowUpRight className="w-4 h-4 text-[#0055ff]" />
-            </a>
-
-            <a
-              href={resumeLink}
-              download="Ashmin_Ashraf_Resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-2.5 border border-[#e5e7eb] text-[#4b5563] text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 hover:text-black transition-colors"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>DOWNLOAD RESUME (PDF)</span>
-            </a>
           </div>
         </div>
       )}

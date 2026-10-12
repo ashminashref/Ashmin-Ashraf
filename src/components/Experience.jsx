@@ -1,162 +1,113 @@
 import React, { useState } from 'react';
-import ScrambleText from './ScrambleText';
-import { Plus, Minus } from 'lucide-react';
+import { EXPERIENCE_DATA } from '../data/portfolioData';
 
 export default function Experience() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [expandedIdx, setExpandedIdx] = useState(0);
 
-  const history = [
-    {
-      period: '05/2025 — 01/2026',
-      role: 'Python Full Stack Developer Intern',
-      entity: 'Techolas Technologies',
-      location: 'Calicut, Kerala',
-      summary:
-        'Developed dynamic web applications, built RESTful backend APIs with Django, and created responsive user interfaces with React.js.',
-      highlights: [
-        'Built & integrated RESTful APIs using Django to connect frontend applications with backend services.',
-        'Developed responsive web applications using React.js, JavaScript, React-Bootstrap, and CSS.',
-        'Utilized React Router for application navigation and managed component state efficiently with React Hooks.',
-      ],
-      stack: ['Python', 'Django', 'React.js', 'REST APIs', 'MySQL', 'React Router'],
-    },
-    {
-      period: '2024 — Present',
-      role: 'Freelance Full Stack Developer & UI Designer',
-      entity: 'Independent Practice / Client Projects',
-      location: 'Remote',
-      summary:
-        'Designing and engineering custom web applications, responsive client platforms, and digital products using Python, Django, React.js, and Figma.',
-      highlights: [
-        'Built full stack client solutions including Dotbey Media, community PWAs, and custom landing experiences.',
-        'Engineered responsive web applications with React.js, modern CSS, and integrated REST APIs.',
-        'Collaborated directly with clients to deliver complete Figma UI/UX prototypes and clean, maintainable codebases.',
-      ],
-      stack: ['Python', 'Django', 'React.js', 'Figma', 'MySQL', 'JavaScript', 'REST APIs'],
-    },
-    {
-      period: '2022 — 2025',
-      role: 'Bachelor of Computer Applications (BCA)',
-      entity: 'University of Calicut',
-      location: 'Kerala, India',
-      summary:
-        'Completed Bachelor of Computer Applications degree, building core foundations in computer science, database design, and software engineering.',
-      highlights: [
-        'Formed strong foundations in relational database management (MySQL), algorithms, and object-oriented programming.',
-        'Developed end-to-end projects including e-voting systems (Votte Digital) and interactive campus tools.',
-        'Bridged technical backend architecture with clean, intuitive user interface design.',
-      ],
-      stack: ['BCA Degree', 'Python', 'MySQL', 'Data Structures', 'Web Development'],
-    },
-    {
-      period: '2025',
-      role: 'Python Full Stack Certification',
-      entity: 'Microsoft x DSCI | NCTT',
-      location: 'National Council for Tech',
-      summary:
-        'Completed intensive course curriculum in Python full stack web engineering, covering Django backends, REST APIs, and modern frontend tools.',
-      highlights: [
-        'Trained in building end-to-end web apps with Django, database integration, and API architecture.',
-        'Mastered component-driven frontend patterns, responsive UI design, and Git version control.',
-        'Awarded official course completion certification in Python Full Stack Development.',
-      ],
-      stack: ['Python', 'Django', 'REST APIs', 'React.js', 'MySQL', 'Git'],
-    },
-  ];
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+    card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+  };
 
   return (
-    <section id="experience" className="py-12 sm:py-16 border-b border-[#e5e7eb] bg-white">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-5 border-b border-[#e5e7eb] gap-4">
-          <div className="space-y-2">
-            <div className="text-xs font-mono text-[#6b7280] uppercase tracking-wider flex items-center gap-2">
-              <span className="w-2 h-2 bg-[#0055ff] inline-block"></span>
-              <span>PROFESSIONAL BACKGROUND</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-sans font-normal tracking-tight text-[#121316]">
-              Experience &amp; Education.{' '}
-              <span className="block text-[#0055ff] font-medium">Internship, Freelance &amp; Education</span>
-            </h2>
-          </div>
+    <section className="skills pt-0 pb-16" id="experience" aria-label="Career Journey and Milestones">
+      {/* Section Header */}
+      <div className="text-center mb-8">
+        <span className="pill mb-4 text-[10px] uppercase tracking-wider">
+          Experience &amp; Education
+        </span>
+        <h2 className="sec">
+          Career milestones &amp; <em>journey</em>
+        </h2>
+        <p className="sec-sub">
+          Continuous hands-on delivery across backend architectures, frontend engineering, and product design.
+        </p>
+      </div>
 
-          <p className="max-w-md text-xs sm:text-sm text-[#4b5563] font-light leading-relaxed">
-            Practical experience in Python full stack development, freelance client delivery, and computer science education.
-          </p>
-        </div>
+      {/* Accordion / Cards Container */}
+      <div className="flex flex-col gap-3.5 max-w-[940px] mx-auto">
+        {EXPERIENCE_DATA.map((item, idx) => {
+          const isExpanded = expandedIdx === idx;
+          return (
+            <div
+              key={idx}
+              className={`glass p-5 md:p-6 transition-all duration-300 border ${
+                isExpanded ? 'border-[var(--accent-border)] shadow-md' : 'border-[var(--line)]'
+              }`}
+              onMouseMove={handleMouseMove}
+            >
+              {/* Card Header Header Row */}
+              <div
+                className="flex items-center justify-between cursor-pointer gap-4 select-none"
+                onClick={() => setExpandedIdx(isExpanded ? -1 : idx)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') setExpandedIdx(isExpanded ? -1 : idx);
+                }}
+                aria-expanded={isExpanded}
+              >
+                <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
+                  <span className="text-[11px] font-mono text-[var(--accent)] font-medium whitespace-nowrap">
+                    {item.period}
+                  </span>
+                  <h3 className="text-[16px] md:text-[18px] font-medium text-[var(--ink)] tracking-tight">
+                    {item.role}
+                  </h3>
+                </div>
 
-        {/* Clean Accordion List */}
-        <div className="border border-[#e5e7eb] divide-y divide-[#e5e7eb]">
-          {history.map((item, idx) => {
-            const isOpen = openIndex === idx;
-            return (
-              <div key={idx} className="bg-white transition-colors">
-                {/* Accordion Trigger Header */}
-                <button
-                  onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                  className="w-full text-left p-4 sm:p-6 lg:p-8 flex items-center justify-between hover:bg-[#fafafa] transition-colors gap-3 sm:gap-4 cursor-pointer"
-                  aria-expanded={isOpen}
-                >
-                  <div className="flex flex-col md:grid md:grid-cols-12 gap-1 md:gap-6 items-start md:items-center flex-1 pr-2">
-                    <span className="md:col-span-3 text-xs font-mono text-[#0055ff] font-semibold">
-                      {item.period}
-                    </span>
-                    <span className="md:col-span-5 text-base sm:text-lg font-sans font-semibold text-[#121316]">
-                      <ScrambleText text={item.role} speed={20} duration={300} />
-                    </span>
-                    <span className="md:col-span-4 text-xs font-mono text-[#6b7280] flex flex-wrap items-center justify-between gap-1">
-                      <span>{item.entity}</span>
-                      <span className="hidden sm:inline text-[#9ca3af]">{item.location}</span>
-                    </span>
+                <div className="flex items-center gap-3">
+                  <span className="hidden sm:inline-block text-[11px] text-[var(--mute)]">
+                    {item.entity}
+                  </span>
+                  <div
+                    className={`w-6 h-6 rounded-full border border-[var(--line)] flex items-center justify-center text-xs transition-transform duration-300 ${
+                      isExpanded ? 'rotate-45 bg-[var(--accent-faint)] text-[var(--accent)]' : 'text-[var(--ink)]'
+                    }`}
+                  >
+                    +
                   </div>
-
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 border border-[#e5e7eb] flex items-center justify-center shrink-0">
-                    {isOpen ? <Minus className="w-4 h-4 text-[#0055ff]" /> : <Plus className="w-4 h-4" />}
-                  </div>
-                </button>
-
-                {/* Accordion Content Body */}
-                {isOpen && (
-                  <div className="px-4 sm:px-8 pb-6 sm:pb-8 pt-3 bg-[#fcfcfd] border-t border-[#f3f4f6] space-y-4 sm:space-y-5 animate-in fade-in duration-200">
-                    <p className="text-xs sm:text-sm text-[#4b5563] leading-relaxed max-w-3xl font-light">
-                      {item.summary}
-                    </p>
-
-                    <div className="space-y-2">
-                      <div className="text-[11px] font-mono text-[#6b7280] uppercase tracking-wider">
-                        Key Deliverables & Highlights:
-                      </div>
-                      <div className="space-y-1.5">
-                        {item.highlights.map((h, hIdx) => (
-                          <div key={hIdx} className="text-xs text-[#374151] flex items-start gap-2">
-                            <span className="text-[#0055ff] font-bold shrink-0">›</span>
-                            <span>{h}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-1.5 pt-2">
-                      <span className="text-[10px] font-mono text-[#9ca3af] uppercase mr-1">
-                        STACK:
-                      </span>
-                      {item.stack.map((t, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="px-2 py-0.5 text-[10px] font-mono bg-white border border-[#e5e7eb] text-[#374151]"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                </div>
               </div>
-            );
-          })}
-        </div>
 
+              {/* Collapsible Content */}
+              {isExpanded && (
+                <div className="mt-4 pt-4 border-t border-[var(--line)] flex flex-col gap-3 animate-fadeIn">
+                  <div className="text-xs text-[var(--mute)] flex items-center gap-2">
+                    <span className="text-[var(--accent)] font-medium">📍 {item.location}</span>
+                    <span>•</span>
+                    <span className="italic text-[var(--ink)]">{item.entity}</span>
+                  </div>
+
+                  <p className="text-[12.5px] leading-relaxed text-[var(--mute)]">
+                    {item.summary}
+                  </p>
+
+                  {/* Highlights Bullet List */}
+                  <ul className="flex flex-col gap-1.5 mt-1">
+                    {item.highlights.map((h, hIdx) => (
+                      <li key={hIdx} className="text-[11.5px] text-[var(--mute)] flex items-start gap-2">
+                        <span className="text-[var(--accent)] mt-0.5">•</span>
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Stack Chips */}
+                  <div className="chips mt-2 pt-2">
+                    {item.stack.map((s) => (
+                      <span className="chip text-[10px] py-1 px-2.5" key={s}>
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </section>
   );
