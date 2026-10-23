@@ -30,15 +30,21 @@ export default function Hero() {
     { w: 'design', it: false },
     { w: 'what', it: true },
     { w: 'you', it: true },
-    { w: 'see', it: true },
+    { w: 'see,', it: true },
   ];
 
   const L2 = [
-    { w: 'and', it: false },
     { w: 'code', it: false },
     { w: 'what', it: true },
     { w: 'it', it: true },
-    { w: 'does', it: true },
+    { w: 'does,', it: true },
+  ];
+
+  const L3 = [
+    { w: 'and', it: false },
+    { w: 'edit', it: false },
+    { w: 'what', it: true },
+    { w: 'moves.', it: true },
   ];
 
   return (
@@ -51,7 +57,7 @@ export default function Hero() {
 
       {/* Pill Badge */}
       <div>
-        <span className="pill badge">Developer + Designer</span>
+        <span className="pill badge">Developer • Designer • Video Editor</span>
       </div>
 
       {/* Main Display Headline with Staggered Word Masking */}
@@ -66,11 +72,16 @@ export default function Hero() {
             <Word key={`l2-${idx}`} w={item.w} isItalic={item.it} />
           ))}
         </span>
+        <span className="hl">
+          {L3.map((item, idx) => (
+            <Word key={`l3-${idx}`} w={item.w} isItalic={item.it} />
+          ))}
+        </span>
       </h1>
 
       {/* Hero Subtitle */}
       <p className="hero-sub">
-        Two crafts, one person. I design the interface and write the code behind it, so nothing gets lost in handoff.
+        Three disciplines, one person. Engineering clean code, crafting distinct visuals, and editing cinematic video — cohesive from concept to cut.
       </p>
     </section>
   );

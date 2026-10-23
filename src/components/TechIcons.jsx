@@ -322,6 +322,73 @@ export function AiToolsIcon({ className = "w-4 h-4" }) {
   );
 }
 
+export function PremiereIcon({ className = "w-4 h-4" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <rect width="24" height="24" rx="5" fill="#00005B" />
+      <text x="5" y="16.5" fill="#9999FF" fontSize="11" fontFamily="sans-serif" fontWeight="bold">Pr</text>
+    </svg>
+  );
+}
+
+export function DavinciIcon({ className = "w-4 h-4" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <rect width="24" height="24" rx="5" fill="#14171E" />
+      <path
+        d="M12 12C12 7.2 15.6 3.5 19.5 3.5C19.5 8 15.8 12 12 12Z"
+        fill="#FF3B30"
+      />
+      <path
+        d="M12 12C7.2 12 3.5 15.6 3.5 19.5C8 19.5 12 15.8 12 12Z"
+        fill="#007AFF"
+      />
+      <path
+        d="M12 12C15.8 13.5 17.5 17.5 16.5 20.5C12.5 20.5 11 16 12 12Z"
+        fill="#FF9500"
+      />
+      <circle cx="12" cy="12" r="1.5" fill="#FFFFFF" />
+    </svg>
+  );
+}
+
+
+export function GoogleDriveIcon({ className = "w-4 h-4" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none">
+      <path d="M7.74 2L1.5 12.8l4.24 7.34 6.24-10.8L7.74 2z" fill="#0066DA" />
+      <path d="M16.26 2H7.74l6.24 10.8h8.52L16.26 2z" fill="#00AC47" />
+      <path d="M22.5 12.8H9.98l-4.24 7.34h12.52l4.24-7.34z" fill="#FFBA00" />
+      <path d="M1.5 12.8L3.62 16.47 7.86 9.13 5.74 5.46 1.5 12.8z" fill="#2684FC" />
+      <path d="M14.02 9.13l-4.04 7.01h8.28l4.24-7.01h-8.48z" fill="#EA4335" />
+    </svg>
+  );
+}
+
+export function CameraIcon({ className = "w-4 h-4" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+      <circle cx="12" cy="13" r="3" />
+    </svg>
+  );
+}
+
+export function FilmReelIcon({ className = "w-4 h-4" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+      <line x1="7" y1="2" x2="7" y2="22" />
+      <line x1="17" y1="2" x2="17" y2="22" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <line x1="2" y1="7" x2="7" y2="7" />
+      <line x1="2" y1="17" x2="7" y2="17" />
+      <line x1="17" y1="17" x2="22" y2="17" />
+      <line x1="17" y1="7" x2="22" y2="7" />
+    </svg>
+  );
+}
+
 export function VsCodeIcon({ className = "w-4 h-4" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none">
@@ -329,5 +396,7 @@ export function VsCodeIcon({ className = "w-4 h-4" }) {
     </svg>
   );
 }
+
+
 
 

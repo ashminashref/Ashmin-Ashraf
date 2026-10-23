@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { EXPERIENCE_DATA } from '../data/portfolioData';
+import { GoogleDriveIcon, FilmReelIcon } from './TechIcons';
 
 export default function Experience() {
   const [expandedIdx, setExpandedIdx] = useState(0);
@@ -22,7 +23,7 @@ export default function Experience() {
           Career milestones &amp; <em>journey</em>
         </h2>
         <p className="sec-sub">
-          Continuous hands-on delivery across backend architectures, frontend engineering, and product design.
+          Continuous hands-on delivery across full stack engineering, interface design, and cinematic videography.
         </p>
       </div>
 
@@ -53,9 +54,17 @@ export default function Experience() {
                   <span className="text-[11px] font-mono text-[var(--accent)] font-medium whitespace-nowrap">
                     {item.period}
                   </span>
-                  <h3 className="text-[16px] md:text-[18px] font-medium text-[var(--ink)] tracking-tight">
-                    {item.role}
-                  </h3>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h3 className="text-[16px] md:text-[18px] font-medium text-[var(--ink)] tracking-tight">
+                      {item.role}
+                    </h3>
+                    {item.driveLink && (
+                      <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-mono">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                        <span>Drive Reel</span>
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -103,6 +112,35 @@ export default function Experience() {
                       </span>
                     ))}
                   </div>
+
+                  {/* Google Drive Link for Video Work */}
+                  {item.driveLink && (
+                    <div className="mt-3 p-3.5 rounded-lg border border-[var(--line)] bg-[var(--vis-bg)] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-full bg-[var(--glass)] border border-[var(--line)] flex items-center justify-center shrink-0">
+                          <GoogleDriveIcon className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-xs font-medium text-[var(--ink)] block">
+                            4K Raw Master Footage &amp; Commercial Cuts
+                          </span>
+                          <span className="text-[11px] text-[var(--mute)]">
+                            Because raw 4K video masters are heavy, browse client reels directly in Google Drive.
+                          </span>
+                        </div>
+                      </div>
+                      <a
+                        href={item.driveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium bg-[var(--accent)] text-black hover:opacity-90 transition-all shadow-sm shrink-0"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <span>Open Drive Vault</span>
+                        <span>↗</span>
+                      </a>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

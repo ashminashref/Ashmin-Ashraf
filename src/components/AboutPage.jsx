@@ -13,11 +13,11 @@ export default function AboutPage({ onOpenContact }) {
           Biography &amp; Philosophy
         </span>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-[var(--ink)] leading-[1.08] mb-5">
-          Developer by training, <br />
-          <em className="font-serif italic text-[var(--em-color)] text-[1.04em]">designer by instinct.</em>
+          Developer by training, designer by instinct, <br />
+          <em className="font-serif italic text-[var(--em-color)] text-[1.04em]">video editor in motion.</em>
         </h1>
         <p className="text-sm md:text-base text-[var(--mute)] leading-relaxed max-w-xl mx-auto">
-          I bridge technical backend architectures with refined visual design, creating web platforms that move gracefully and perform reliably.
+          I bridge technical backend architectures with refined visual design and cinematic video editing — creating cohesive digital experiences that move seamlessly.
         </p>
       </div>
 
@@ -53,16 +53,16 @@ export default function AboutPage({ onOpenContact }) {
         {/* Right Extended Bio */}
         <div className="w-full md:w-2/3 space-y-4 text-xs md:text-sm text-[var(--ink)] leading-relaxed">
           <h3 className="text-xl md:text-2xl font-normal text-[var(--ink)]">
-            The Story Behind the Dual Craft
+            The Story Behind the Tri-Craft
           </h3>
           <p className="text-[var(--mute)]">
-            Most modern development pipelines suffer from a perpetual handoff friction: designers build prototypes in Figma that developers compromise during implementation, while engineers write backends without understanding the micro-interaction requirements of the frontend.
+            Most digital projects suffer from disjointed handoffs: designers build mockups that engineers compromise during development, while promotional video teams struggle to capture the product's actual aesthetic soul.
           </p>
           <p className="text-[var(--mute)]">
-            My practice was intentionally shaped to close that divide. With a foundation in computer applications and relational database modeling, I build reliable, structured backends using Python and Django. Simultaneously, my visual instinct drives me to obsess over kerning, spatial rhythm, easing curves, and responsive viewport ergonomics in Figma.
+            My practice was deliberately shaped to unite all three crafts. With a foundation in computer applications and relational database modeling, I build reliable, structured backends using Python and Django. Simultaneously, my visual instinct drives me to obsess over kerning, spatial rhythm, and responsive viewport ergonomics in Figma.
           </p>
           <p className="text-[var(--mute)]">
-            When I build an interface in React, GSAP, and Tailwind CSS, nothing gets lost in translation. Every hover state, layout constraint, and animation timeline is crafted with the original design intent intact.
+            When a project requires visual promotion, I pick up the camera, cut 4K footage in Premiere Pro, and color grade in DaVinci Resolve. One creator, one standard, zero handoff loss.
           </p>
 
           <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
@@ -236,6 +236,19 @@ export default function AboutPage({ onOpenContact }) {
                 <p className="text-xs text-[var(--mute)] mt-2 max-w-xl leading-relaxed">
                   {item.summary}
                 </p>
+                {item.driveLink && (
+                  <div className="mt-3">
+                    <a
+                      href={item.driveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[var(--accent-faint)] text-[var(--accent)] border border-[var(--accent-border)] hover:bg-[var(--accent)] hover:text-black transition-all"
+                    >
+                      <span>Open 4K Master Reel (Google Drive)</span>
+                      <span>↗</span>
+                    </a>
+                  </div>
+                )}
               </div>
 
               <div className="chips sm:flex-col sm:items-end">

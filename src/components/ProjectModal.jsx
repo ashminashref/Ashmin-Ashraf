@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { GoogleDriveIcon } from './TechIcons';
 
 export default function ProjectModal({ project, onClose }) {
   useEffect(() => {
@@ -10,6 +11,14 @@ export default function ProjectModal({ project, onClose }) {
   }, [onClose]);
 
   if (!project) return null;
+
+  const projectImg = project.img || project.image;
+  const projectTitle = project.t || project.title;
+  const projectDesc = project.desc || project.summary || project.headline;
+  const projectLive = project.live || project.liveUrl;
+  const projectGithub = project.github || project.githubUrl;
+  const projectBehance = project.behance || project.behanceUrl;
+  const projectDrive = project.drive || project.driveUrl;
 
   return (
     <div
@@ -34,11 +43,11 @@ export default function ProjectModal({ project, onClose }) {
         </button>
 
         {/* Media Preview if real image exists */}
-        {project.img && (
-          <div className="w-full h-52 md:h-64 rounded-2xl overflow-hidden mb-6 border border-[var(--line)] bg-[var(--vis-bg)]">
+        {projectImg && (
+          <div className="w-full h-56 md:h-72 rounded-2xl overflow-hidden mb-6 border border-[var(--line)] bg-[var(--vis-bg)]">
             <img
-              src={project.img}
-              alt={project.t}
+              src={projectImg}
+              alt={projectTitle}
               className="w-full h-full object-cover"
             />
           </div>
@@ -47,7 +56,11 @@ export default function ProjectModal({ project, onClose }) {
         {/* Header Information */}
         <div className="flex items-center gap-2 mb-2">
           <span className="pill text-[10px] py-0.5 px-2.5">
-            {project.k === 'Dev' ? 'Engineering' : 'Design & Identity'}
+            {project.k === 'Dev'
+              ? 'Engineering'
+              : project.k === 'Motion'
+              ? 'Videography & Motion'
+              : project.category || 'Design & Identity'}
           </span>
           {project.txt && (
             <span className="text-xs font-serif italic text-[var(--mute)]">
@@ -60,12 +73,12 @@ export default function ProjectModal({ project, onClose }) {
           id="modal-title"
           className="text-2xl md:text-3xl font-medium text-[var(--ink)] tracking-tight"
         >
-          {project.t}
+          {projectTitle}
         </h3>
 
         {/* Description */}
         <p className="mt-3 text-sm leading-relaxed text-[var(--mute)]">
-          {project.desc ||
+          {projectDesc ||
             'Crafted with attention to typography, interaction smoothness, and engineering robustness.'}
         </p>
 
@@ -86,10 +99,22 @@ export default function ProjectModal({ project, onClose }) {
         )}
 
         {/* Action Buttons */}
-        <div className="mt-6 pt-5 border-t border-[var(--line)] flex flex-wrap gap-3">
-          {project.live && (
+        <div className="mt-6 pt-5 border-t border-[var(--line)] flex flex-wrap gap-3 items-center">
+          {projectDrive && (
             <a
-              href={project.live}
+              href={projectDrive}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pill on text-xs py-2 px-4 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-medium shadow-md shadow-blue-500/20"
+            >
+              <GoogleDriveIcon className="w-3.5 h-3.5" />
+              <span>Watch on Google Drive</span>
+              <span>↗</span>
+            </a>
+          )}
+          {projectLive && !projectDrive && (
+            <a
+              href={projectLive}
               target="_blank"
               rel="noopener noreferrer"
               className="pill on text-xs py-2 px-4 flex items-center gap-2"
@@ -98,9 +123,9 @@ export default function ProjectModal({ project, onClose }) {
               <span>↗</span>
             </a>
           )}
-          {project.github && (
+          {projectGithub && (
             <a
-              href={project.github}
+              href={projectGithub}
               target="_blank"
               rel="noopener noreferrer"
               className="pill text-xs py-2 px-4 flex items-center gap-2"
@@ -109,9 +134,9 @@ export default function ProjectModal({ project, onClose }) {
               <span>↗</span>
             </a>
           )}
-          {project.behance && (
+          {projectBehance && (
             <a
-              href={project.behance}
+              href={projectBehance}
               target="_blank"
               rel="noopener noreferrer"
               className="pill text-xs py-2 px-4 flex items-center gap-2"

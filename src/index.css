@@ -285,23 +285,27 @@ em, .it {
 h1.display {
   margin: 0 auto;
   font-weight: 400;
-  font-size: clamp(38px, 6.1vw, 76px);
-  line-height: 1.04;
+  font-size: clamp(26px, 6.2vw, 76px);
+  line-height: 1.15;
   letter-spacing: -0.025em;
-  max-width: 900px;
+  max-width: 920px;
   color: var(--ink);
+  text-wrap: balance;
+  word-break: normal;
 }
 
 .hl {
   display: block;
+  text-align: center;
+  max-width: 100%;
 }
 
 .hw {
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
-  padding: 0 0.12em 0.12em;
-  margin: 0 -0.12em -0.12em;
+  padding: 0 0.08em 0.22em;
+  margin: 0 -0.01em -0.1em;
 }
 
 .hw > span {
@@ -319,8 +323,8 @@ h1.display {
 
 .hero-sub {
   margin: 22px auto 0;
-  max-width: 330px;
-  font-size: 12px;
+  max-width: 340px;
+  font-size: 13px;
   line-height: 1.6;
   color: var(--mute);
 }
@@ -822,12 +826,29 @@ h2.sec {
   min-height: 440px;
 }
 
+.tri {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 46px;
+}
+
+@media (max-width: 990px) {
+  .tri {
+    grid-template-columns: 1fr;
+  }
+}
+
 .side.dev {
   --g: rgba(110, 200, 140, 0.45);
 }
 
 .side.des {
   --g: rgba(150, 120, 235, 0.45);
+}
+
+.side.vid {
+  --g: rgba(70, 180, 245, 0.45);
 }
 
 .side::before {
@@ -1240,7 +1261,13 @@ html.light .vis .c {
     order: -1;
   }
   .hero {
-    padding-top: 70px;
+    padding-top: 75px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  h1.display {
+    font-size: clamp(26px, 6.8vw, 56px);
+    line-height: 1.16;
   }
 }
 
@@ -1249,6 +1276,37 @@ html.light .vis .c {
     --tile-w: 128px;
     --tile-h: 134px;
     --tile-gap: 10px;
+  }
+  .hero {
+    padding-top: 52px;
+    padding-bottom: 34px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .badge {
+    margin-bottom: 18px;
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+  h1.display {
+    font-size: clamp(23px, 7.5vw, 38px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    max-width: 100%;
+    padding: 0 4px;
+  }
+  .hl {
+    margin-bottom: 2px;
+  }
+  .hw {
+    padding: 0 0.06em 0.18em;
+  }
+  .hero-sub {
+    font-size: 12.5px;
+    line-height: 1.55;
+    max-width: 295px;
+    margin-top: 15px;
+    padding: 0 6px;
   }
   .a-poster .big {
     font-size: 56px;
@@ -1279,6 +1337,17 @@ html.light .vis .c {
   }
   .fnav {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  h1.display {
+    font-size: clamp(21px, 7vw, 28px);
+    line-height: 1.24;
+  }
+  .hero-sub {
+    font-size: 12px;
+    max-width: 260px;
   }
 }
 

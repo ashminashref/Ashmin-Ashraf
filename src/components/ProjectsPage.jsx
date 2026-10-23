@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { PROJECTS_DETAILED } from '../data/portfolioData';
 import { TECH_BADGES } from '../data/techBadges';
+import { GoogleDriveIcon } from './TechIcons';
 
 export default function ProjectsPage({ onSelectProject, onOpenContact }) {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -12,6 +13,7 @@ export default function ProjectsPage({ onSelectProject, onOpenContact }) {
     'AI & Creative Tech',
     'UI/UX & Brand Design',
     'Client & Agency Work',
+    'Videography & Motion',
   ];
 
   const filteredProjects = useMemo(() => {
@@ -224,16 +226,29 @@ export default function ProjectsPage({ onSelectProject, onOpenContact }) {
 
                 {/* Actions Footer */}
                 <div className="pt-4 border-t border-[var(--line)] flex flex-wrap items-center gap-3">
-                  {project.liveUrl && (
+                  {project.driveUrl ? (
                     <a
-                      href={project.liveUrl}
+                      href={project.driveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="nav-box-item active text-xs py-2 px-4 flex items-center gap-1.5"
+                      className="nav-box-item active text-xs py-2 px-4 flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-medium border-0 shadow-md shadow-blue-500/20"
                     >
-                      <span>Live Demonstration</span>
+                      <GoogleDriveIcon className="w-3.5 h-3.5" />
+                      <span>Watch on Google Drive</span>
                       <span>↗</span>
                     </a>
+                  ) : (
+                    project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="nav-box-item active text-xs py-2 px-4 flex items-center gap-1.5"
+                      >
+                        <span>Live Demonstration</span>
+                        <span>↗</span>
+                      </a>
+                    )
                   )}
                   {project.githubUrl && (
                     <a
@@ -270,6 +285,7 @@ export default function ProjectsPage({ onSelectProject, onOpenContact }) {
                         live: project.liveUrl,
                         github: project.githubUrl,
                         behance: project.behanceUrl,
+                        drive: project.driveUrl,
                       })
                     }
                     className="nav-box-item text-xs py-2 px-3 text-[var(--faint)] hover:text-[var(--ink)] ml-auto"

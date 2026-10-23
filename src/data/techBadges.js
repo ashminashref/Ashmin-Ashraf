@@ -27,6 +27,8 @@ import {
   JevAiIcon,
   GeminiIcon,
   AiToolsIcon,
+  PremiereIcon,
+  DavinciIcon,
 } from '../components/TechIcons';
 
 export const TECH_BADGES = {
@@ -47,6 +49,8 @@ export const TECH_BADGES = {
   illustrator: { name: 'Adobe Illustrator', icon: IllustratorIcon, category: 'design', color: '#FF9A00' },
   affinity: { name: 'Affinity Designer', icon: AffinityIcon, category: 'design', color: '#1DCBFF' },
   canva: { name: 'Canva', icon: CanvaIcon, category: 'design', color: '#00C4CC' },
+  premiere: { name: 'Adobe Premiere Pro', icon: PremiereIcon, category: 'video', color: '#9999FF' },
+  davinci: { name: 'DaVinci Resolve', icon: DavinciIcon, category: 'video', color: '#FF3B30' },
   git: { name: 'Git & GitHub', icon: GitIcon, category: 'tool', color: '#F05032' },
   html5: { name: 'HTML5', icon: Html5Icon, category: 'language', color: '#E34F26' },
   css3: { name: 'CSS3', icon: Css3Icon, category: 'language', color: '#1572B6' },
